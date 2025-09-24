@@ -7,9 +7,11 @@ var stopped_on_door := false
 
 @export var controls: Resource=null
 
+var right_sequence_index := 0;
+var sequence_list := []
+
 func _physics_process(_delta: float):
-	if (stopped_on_door):
-		input_locked = true
+	input_locked = stopped_on_door
 	if !is_on_floor():
 		if is_on_wall():
 			velocity.y += gravity * 0.5
@@ -20,7 +22,7 @@ func _physics_process(_delta: float):
 		if Input.is_action_pressed(controls.move_down) && !input_locked:
 			velocity.y += 300
 		
-	if !input_locked && Input.is_action_just_pressed(controls.move_up) && (is_on_floor() || is_on_wall()):
+	if !input_locked && (Input.is_action_just_pressed(controls.move_up) && (is_on_floor() || is_on_wall())):
 		velocity.y = -jump_force
 		
 	
@@ -32,8 +34,51 @@ func _physics_process(_delta: float):
 		
 	move_and_slide()
 	
+	if stopped_on_door:
+		print($"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_child(right_sequence_index))
+		if right_sequence_index >= sequence_list.size():
+			unlock_player()
+		if Input.is_action_just_pressed(controls.move_up):
+			if sequence_list[right_sequence_index] == "u":
+				$"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_child(right_sequence_index).paint_arrow(true)
+				right_sequence_index += 1
+			else:
+				for i in $"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_children():
+					i.paint_arrow(false)
+				right_sequence_index = 0
+		if Input.is_action_just_pressed(controls.move_down):
+			if sequence_list[right_sequence_index] == "d":
+				$"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_child(right_sequence_index).paint_arrow(true)
+				right_sequence_index += 1
+			else:
+				for i in $"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_children():
+					i.paint_arrow(false)
+				right_sequence_index = 0
+		if Input.is_action_just_pressed(controls.move_left):
+			if sequence_list[right_sequence_index] == "l":
+				$"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_child(right_sequence_index).paint_arrow(true)
+				right_sequence_index += 1
+			else:
+				for i in $"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_children():
+					i.paint_arrow(false)
+				right_sequence_index = 0
+		if Input.is_action_just_pressed(controls.move_right):
+			if sequence_list[right_sequence_index] == "r":
+				$"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_child(right_sequence_index).paint_arrow(true)
+				right_sequence_index += 1
+			else:
+				for i in $"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_children():
+					i.paint_arrow(false)
+				right_sequence_index = 0
+		print(right_sequence_index)
+		print(sequence_list)
+			
+		
+		
+	
 func stop_on_door() -> void:
-	stopped_on_door = true
+	
+	sequence_list = ["u","d","l","r","r"]
 	if controls.player_index == 0:
 		if $"../../../../PuzzleModal".has_method("createArrowList"):
 			$"../../../../PuzzleModal".createArrowList(["u","d","l","r","r"])
@@ -44,3 +89,11 @@ func stop_on_door() -> void:
 			$"../../../../PuzzleModal".createArrowList(["u","d","l","r","r"])
 		#if $"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".has_method("createArrowList"):
 			#$"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".createArrowList(["u","d","l","r","r"])
+	stopped_on_door = true
+
+func unlock_player() -> void:
+	for i in $"../../../../PuzzleModal/SubViewportContainer/SubViewport/HBoxContainer".get_children():
+			i.paint_arrow(false)
+	print("unlocked")
+	stopped_on_door = false
+	right_sequence_index = 0
