@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl252ohatkoyb"]
+
+[ext_resource type="Texture2D" uid="uid://cota1ll68vbap" path="res://Tiles/Tiles/tile_0070.png" id="1_2qjvt"]
+
+[node name="Puzzle_arrow_up" type="SubViewportContainer"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(16, 16)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport"]
+position = Vector2(8, 8)
+texture = ExtResource("1_2qjvt")

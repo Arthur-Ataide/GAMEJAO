@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://djyf76m0pqjhf"]
+
+[ext_resource type="Script" uid="uid://c0hx3j8mhy2oc" path="res://props/unlockable_door.gd" id="1_nwxgy"]
+[ext_resource type="Texture2D" uid="uid://ui82a1ihh5mq" path="res://Tiles/Transparent/portaTrancada.png" id="1_o1dtf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwxgy"]
+size = Vector2(7, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ldxq"]
+size = Vector2(7, 15)
+
+[node name="UnlockableDoor" type="StaticBody2D"]
+script = ExtResource("1_nwxgy")
+
+[node name="UnlockablerDoorSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_o1dtf")
+
+[node name="UnlockableDoorCollision" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_nwxgy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.5, 0.5)
+shape = SubResource("RectangleShape2D_1ldxq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

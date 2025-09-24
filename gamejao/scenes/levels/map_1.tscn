@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://dggawkgrxx0wp"]
+
+[ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
+[ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ffebq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2hyn"]
+size = Vector2(480, 72)
+
+[node name="Mapa1" type="Node2D"]
+script = ExtResource("1_v7fe1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(240, 256)
+scale = Vector2(1, 0.36)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+scale = Vector2(480, 72.249985)
+mesh = SubResource("QuadMesh_ffebq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_h2hyn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(466.99997, 135)
+rotation = 1.5707964
+scale = Vector2(0.55, 0.36)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2"]
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+scale = Vector2(480, 72.249985)
+mesh = SubResource("QuadMesh_ffebq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_h2hyn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(13, 135)
+rotation = 1.5707964
+scale = Vector2(0.55, 0.36)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3"]
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+scale = Vector2(480, 72.249985)
+mesh = SubResource("QuadMesh_ffebq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_h2hyn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(240, 13)
+scale = Vector2(1, 0.36)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4"]
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+scale = Vector2(480, 72.249985)
+mesh = SubResource("QuadMesh_ffebq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_h2hyn")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(240, 135)
+scale = Vector2(0.4, 0.3)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5"]
+modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
+scale = Vector2(480, 72.249985)
+mesh = SubResource("QuadMesh_ffebq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_h2hyn")
+
+[node name="UnlockableDoor" parent="." instance=ExtResource("1_h2hyn")]
+position = Vector2(346, 235)
+
+[connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
