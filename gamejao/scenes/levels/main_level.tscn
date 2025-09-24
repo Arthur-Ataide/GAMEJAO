@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://davav8lxmqru8"]
+[gd_scene load_steps=9 format=3 uid="uid://davav8lxmqru8"]
 
+[ext_resource type="Script" uid="uid://cesthlqr11ojv" path="res://scenes/levels/main_level.gd" id="1_fke1l"]
+[ext_resource type="Texture2D" uid="uid://wgitnancowcj" path="res://icon.svg" id="2_ojqrr"]
 [ext_resource type="PackedScene" uid="uid://d2vk830vriy5g" path="res://scenes/player/climbable_wall.tscn" id="3_fke1l"]
+[ext_resource type="Script" uid="uid://d0f0hihe507t4" path="res://scenes/levels/area_2d.gd" id="4_hn3as"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_lx3qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojqrr"]
 size = Vector2(1000, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fke1l"]
+size = Vector2(46, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn3as"]
+size = Vector2(3, 55.875)
+
 [node name="MainLevel" type="Node2D"]
+script = ExtResource("1_fke1l")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(490, 607)
@@ -20,5 +30,36 @@ mesh = SubResource("QuadMesh_lx3qq")
 shape = SubResource("RectangleShape2D_ojqrr")
 
 [node name="ClimbableWall" parent="." instance=ExtResource("3_fke1l")]
-position = Vector2(422, 369)
+position = Vector2(899, 369)
 scale = Vector2(1, 5)
+
+[node name="ClimbableWall2" parent="." instance=ExtResource("3_fke1l")]
+position = Vector2(810, 366)
+scale = Vector2(1, 5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(436, 521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_fke1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+scale = Vector2(0.359375, 0.453125)
+texture = ExtResource("2_ojqrr")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D" node_paths=PackedStringArray("destino")]
+position = Vector2(-1, 2)
+script = ExtResource("4_hn3as")
+destino = NodePath("../../Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(-27, -3)
+shape = SubResource("RectangleShape2D_hn3as")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(580, 511)
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_exited"]
