@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddyta8p5vgl2b"]
+[gd_scene load_steps=9 format=3 uid="uid://ddyta8p5vgl2b"]
 
 [ext_resource type="PackedScene" uid="uid://davav8lxmqru8" path="res://scenes/levels/main_level.tscn" id="1_7f25s"]
-[ext_resource type="Script" uid="uid://gny23d0orc76" path="res://scenes/player/game.gd" id="1_o0785"]
+[ext_resource type="Script" uid="uid://gny23d0orc76" path="res://scenes/game.gd" id="1_o0785"]
 [ext_resource type="Script" uid="uid://cpoh800s32rdx" path="res://scenes/player/player_2.gd" id="3_0sx32"]
+[ext_resource type="PackedScene" uid="uid://c660heps4bk6k" path="res://scenes/props/unlockable_door.tscn" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://bqotqlxl76vq5" path="res://scenes/player/player_1.gd" id="3_x21go"]
 [ext_resource type="Texture2D" uid="uid://wgitnancowcj" path="res://icon.svg" id="4_x21go"]
+[ext_resource type="Texture2D" uid="uid://cgg2ltpshf8qv" path="res://scenes/props/tile_0138.png" id="7_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 
@@ -21,16 +23,22 @@ layout_mode = 2
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(1152, 324)
+size = Vector2i(480, 135)
 render_target_update_mode = 4
 
 [node name="MainLevel" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_7f25s")]
 
+[node name="UnlockableDoor" parent="VBoxContainer/SubViewportContainer/SubViewport/MainLevel" instance=ExtResource("3_p57ef")]
+position = Vector2(187, 93)
+scale = Vector2(7.4602737, -8.316794)
+
 [node name="Character" type="CharacterBody2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
-position = Vector2(216, 510)
+position = Vector2(94, 95)
+scale = Vector2(1.7795153, 1.6757996)
 script = ExtResource("3_x21go")
 
 [node name="SpritePlayer" type="Sprite2D" parent="VBoxContainer/SubViewportContainer/SubViewport/Character"]
+texture_filter = 1
 scale = Vector2(0.15625, 0.15625)
 texture = ExtResource("4_x21go")
 
@@ -48,11 +56,11 @@ layout_mode = 2
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(1152, 324)
+size = Vector2i(480, 135)
 render_target_update_mode = 4
 
 [node name="Character" type="CharacterBody2D" parent="VBoxContainer/SubViewportContainer2/SubViewport"]
-position = Vector2(118, 505)
+position = Vector2(52, -52)
 script = ExtResource("3_0sx32")
 
 [node name="SpritePlayer" type="Sprite2D" parent="VBoxContainer/SubViewportContainer2/SubViewport/Character"]
@@ -63,3 +71,7 @@ texture = ExtResource("4_x21go")
 shape = SubResource("RectangleShape2D_dovo2")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer2/SubViewport/Character"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(84, 163)
+texture = ExtResource("7_u5sy4")
