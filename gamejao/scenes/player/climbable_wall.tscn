@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2vk830vriy5g"]
+
+[ext_resource type="Script" uid="uid://bygoa31na7gjr" path="res://scenes/player/climbable_wall.gd" id="1_v3dk7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_c03g2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3dk7"]
+size = Vector2(10, 100)
+
+[node name="ClimbableWall" type="StaticBody2D"]
+script = ExtResource("1_v3dk7")
+
+[node name="ClimbableWallMesh" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0.39607844, 1, 1)
+scale = Vector2(10, 100)
+mesh = SubResource("QuadMesh_c03g2")
+
+[node name="ClimbableWallCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v3dk7")
