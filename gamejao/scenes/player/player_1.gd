@@ -5,10 +5,12 @@ var gravity = 30
 var jump_force = 300
 var perto_da_porta = false
 var destino_atual = null 
+var ultimo_ponto_seguro: Vector2
 
 func set_destino_e_estado_da_porta(novo_destino, esta_perto):
 	destino_atual = novo_destino
 	perto_da_porta = esta_perto
+
 
 func _physics_process(_delta: float):
 	# Aplica gravidade constantemente, a menos que o personagem esteja no chão.
@@ -52,3 +54,27 @@ func _on_porta_area_body_exited(body):
 	if body == self:
 		perto_da_porta = false
 		print("Jogador1 se afastou da porta.")
+
+func _ready():
+	# Define a posição inicial como o primeiro ponto seguro.
+	ultimo_ponto_seguro = global_position
+
+func _on_time_checkpoint_timeout() -> void:
+	# Apenas salva a posição se o jogador estiver no chão.
+	if is_on_floor():
+		ultimo_ponto_seguro = global_position
+		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
+
+func morrer():
+	print("O personagem morreu! Aguardando 0.5s...")
+
+	velocity = Vector2.ZERO # Garante que o personagem pare completamente.
+	set_physics_process(false)
+	
+	await get_tree().create_timer(0.25).timeout
+	
+	global_position = ultimo_ponto_seguro
+
+	print("Voltando para o último checkpoint.")
+	
+	set_physics_process(true)

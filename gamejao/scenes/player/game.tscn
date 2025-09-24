@@ -42,6 +42,10 @@ drag_vertical_enabled = true
 drag_top_margin = 0.6
 drag_bottom_margin = 0.6
 
+[node name="timeCheckpoint" type="Timer" parent="VBoxContainer/SubViewportContainer/SubViewport/Character"]
+wait_time = 3.5
+autostart = true
+
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -63,3 +67,5 @@ texture = ExtResource("4_x21go")
 shape = SubResource("RectangleShape2D_dovo2")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer2/SubViewport/Character"]
+
+[connection signal="timeout" from="VBoxContainer/SubViewportContainer/SubViewport/Character/timeCheckpoint" to="VBoxContainer/SubViewportContainer/SubViewport/Character" method="_on_time_checkpoint_timeout"]

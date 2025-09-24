@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://davav8lxmqru8"]
+[gd_scene load_steps=13 format=3 uid="uid://davav8lxmqru8"]
 
 [ext_resource type="Script" uid="uid://cesthlqr11ojv" path="res://scenes/levels/main_level.gd" id="1_fke1l"]
 [ext_resource type="Texture2D" uid="uid://wgitnancowcj" path="res://icon.svg" id="2_ojqrr"]
 [ext_resource type="PackedScene" uid="uid://d2vk830vriy5g" path="res://scenes/player/climbable_wall.tscn" id="3_fke1l"]
 [ext_resource type="Script" uid="uid://d0f0hihe507t4" path="res://scenes/levels/area_2d.gd" id="4_hn3as"]
+[ext_resource type="Texture2D" uid="uid://540jkxob0gu" path="res://scenes/levels/tile_0090.png" id="5_geiq8"]
+[ext_resource type="Script" uid="uid://bew6sgns70doa" path="res://scenes/levels/zona_de_morte.gd" id="6_tkkka"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_lx3qq"]
 
@@ -15,6 +17,11 @@ size = Vector2(46, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn3as"]
 size = Vector2(3, 55.875)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tkkka"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geiq8"]
+size = Vector2(4123, 6)
 
 [node name="MainLevel" type="Node2D"]
 script = ExtResource("1_fke1l")
@@ -61,5 +68,32 @@ shape = SubResource("RectangleShape2D_hn3as")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(580, 511)
 
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(661, 313)
+
+[node name="espinho" type="Area2D" parent="."]
+position = Vector2(656, 551)
+script = ExtResource("6_tkkka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="espinho"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_tkkka")
+
+[node name="Sprite2D" type="Sprite2D" parent="espinho"]
+texture = ExtResource("5_geiq8")
+
+[node name="zona de morte" type="Area2D" parent="."]
+position = Vector2(411, 749)
+script = ExtResource("6_tkkka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona de morte"]
+position = Vector2(360.5, -7)
+shape = SubResource("RectangleShape2D_geiq8")
+
+[node name="Sprite2D" type="Sprite2D" parent="zona de morte"]
+texture = ExtResource("5_geiq8")
+
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/Area2D" to="StaticBody2D/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="espinho" to="espinho" method="_on_body_entered"]
+[connection signal="body_entered" from="zona de morte" to="zona de morte" method="_on_body_entered"]
