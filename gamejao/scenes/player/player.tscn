@@ -1,26 +1,163 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhfodnwgyinnw"]
+[gd_scene load_steps=29 format=3 uid="uid://bhfodnwgyinnw"]
 
 [ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
+[ext_resource type="Texture2D" uid="uid://b8u362xgpnaf" path="res://scenes/animacao_player/correr_atras/horse_computador1.png" id="3_8ydkj"]
+[ext_resource type="Texture2D" uid="uid://b6waeqhae3pvv" path="res://scenes/animacao_player/tras/horse_computador1.png" id="3_qek5x"]
+[ext_resource type="Texture2D" uid="uid://b5u5c40071auc" path="res://scenes/animacao_player/frente/horse_computador1.png" id="3_ugbui"]
+[ext_resource type="Texture2D" uid="uid://ctra2kqnbl2e1" path="res://scenes/animacao_player/correr_atras/horse_computador2.png" id="4_3j4b4"]
+[ext_resource type="Texture2D" uid="uid://bwfgbb3357rqd" path="res://scenes/animacao_player/tras/horse_computador2.png" id="4_5gtgg"]
+[ext_resource type="Texture2D" uid="uid://cerlmd6gaymn4" path="res://scenes/animacao_player/frente/horse_computador2.png" id="4_fcs02"]
+[ext_resource type="Texture2D" uid="uid://df0qyp6p3y30o" path="res://scenes/animacao_player/tras/horse_computador3.png" id="5_h17s1"]
+[ext_resource type="Texture2D" uid="uid://dk8tm0s7ijchv" path="res://scenes/animacao_player/frente/horse_computador3.png" id="5_myrg7"]
+[ext_resource type="Texture2D" uid="uid://d0y14hrwj6lpw" path="res://scenes/animacao_player/correr_atras/horse_computador3.png" id="5_yj68g"]
+[ext_resource type="Texture2D" uid="uid://cluw7q10v6toi" path="res://scenes/animacao_player/correr_atras/horse_computador4.png" id="6_ioxgp"]
+[ext_resource type="Texture2D" uid="uid://ichv61riqlfk" path="res://scenes/animacao_player/tras/horse_computador4.png" id="6_je7p5"]
+[ext_resource type="Texture2D" uid="uid://qulbkapfvjee" path="res://scenes/animacao_player/frente/horse_computador4.png" id="6_kvlxm"]
+[ext_resource type="Texture2D" uid="uid://f7yd0r7fuk7v" path="res://scenes/animacao_player/correr_atras/horse_computador5.png" id="7_cnsyf"]
+[ext_resource type="Texture2D" uid="uid://db51k67ikdsu1" path="res://scenes/animacao_player/tras/horse_computador5.png" id="7_fm80t"]
+[ext_resource type="Texture2D" uid="uid://cef4bbe41imjl" path="res://scenes/animacao_player/frente/horse_computador5.png" id="7_uf5tr"]
+[ext_resource type="Texture2D" uid="uid://bqpxsh5xnpypv" path="res://scenes/animacao_player/correr_atras/horse_computador6.png" id="8_007i1"]
+[ext_resource type="Texture2D" uid="uid://cs4wiv1ckv4wt" path="res://scenes/animacao_player/tras/horse_computador6.png" id="8_gx1jg"]
+[ext_resource type="Texture2D" uid="uid://ccr7880n82t8o" path="res://scenes/animacao_player/frente/horse_computador6.png" id="8_lgqa7"]
+[ext_resource type="Texture2D" uid="uid://8fdkchebc0t2" path="res://scenes/animacao_player/correr_frente/horse_computador1.png" id="9_6cv16"]
+[ext_resource type="Texture2D" uid="uid://bo6r4fnrjv0h5" path="res://scenes/animacao_player/correr_frente/horse_computador2.png" id="10_j4nxn"]
+[ext_resource type="Texture2D" uid="uid://b5gvxcskakobo" path="res://scenes/animacao_player/correr_frente/horse_computador3.png" id="11_28m0y"]
+[ext_resource type="Texture2D" uid="uid://b0cdhfvnwwena" path="res://scenes/animacao_player/correr_frente/horse_computador4.png" id="12_uniwh"]
+[ext_resource type="Texture2D" uid="uid://cocptfm1xnup6" path="res://scenes/animacao_player/correr_frente/horse_computador5.png" id="13_iqsei"]
+[ext_resource type="Texture2D" uid="uid://83l8myr7mo0f" path="res://scenes/animacao_player/correr_frente/horse_computador6.png" id="14_tffgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
-size = Vector2(7.5, 8)
+size = Vector2(308, 298)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ugbui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fcs02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_myrg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kvlxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uf5tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lgqa7")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_6cv16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j4nxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_28m0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uniwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_iqsei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_tffgl")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8ydkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3j4b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yj68g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ioxgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cnsyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_007i1")
+}],
+"loop": true,
+"name": &"correr_atras",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ugbui")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qek5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5gtgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h17s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_je7p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fm80t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gx1jg")
+}],
+"loop": true,
+"name": &"pra atras",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_dovo2")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(-3, -17)
 scale = Vector2(0.62500006, 0.49999994)
 texture = ExtResource("1_gmlin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.75, -16)
+position = Vector2(4.7683716e-07, 1.000001)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_8afob")
 
 [node name="TimeCheckpoint" type="Timer" parent="."]
 wait_time = 3.5
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_dovo2")
+animation = &"andando"
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]

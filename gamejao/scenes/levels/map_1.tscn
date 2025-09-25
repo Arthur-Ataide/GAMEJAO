@@ -106,7 +106,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_yxgn6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-222, 943)
+position = Vector2(1935, 5713)
 scale = Vector2(1, 0.36)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
@@ -118,7 +118,7 @@ mesh = SubResource("QuadMesh_ffebq")
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(232, 823)
+position = Vector2(2389, 5593)
 rotation = 1.5707964
 scale = Vector2(0.55, 0.36)
 
@@ -131,7 +131,7 @@ mesh = SubResource("QuadMesh_ffebq")
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(-222, 823)
+position = Vector2(1935, 5593)
 rotation = 1.5707964
 scale = Vector2(0.55, 0.36)
 
@@ -144,7 +144,7 @@ mesh = SubResource("QuadMesh_ffebq")
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2(5, 701)
+position = Vector2(2162, 5471)
 scale = Vector2(1, 0.36)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4"]
@@ -156,7 +156,7 @@ mesh = SubResource("QuadMesh_ffebq")
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2(5, 823)
+position = Vector2(2162, 5593)
 scale = Vector2(0.4, 0.3)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5"]
@@ -168,11 +168,11 @@ mesh = SubResource("QuadMesh_ffebq")
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="UnlockableDoor" parent="." instance=ExtResource("1_h2hyn")]
-position = Vector2(111, 923)
+position = Vector2(2268, 5693)
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
-position = Vector2(286, 945)
-scale = Vector2(1, 0.36)
+position = Vector2(38980.004, 2396)
+scale = Vector2(138.9, 50)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D6"]
 modulate = Color(0.21950102, 0.21950102, 0.21950102, 1)
@@ -183,7 +183,7 @@ mesh = SubResource("QuadMesh_ffebq")
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="zona morte" type="Area2D" parent="."]
-position = Vector2(31, 1001)
+position = Vector2(2188, 5771)
 script = ExtResource("3_wy4vl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona morte"]
@@ -199,7 +199,7 @@ position = Vector2(436, 0)
 shape = SubResource("RectangleShape2D_ikjlj")
 
 [node name="portal" type="StaticBody2D" parent="."]
-position = Vector2(-50, 922)
+position = Vector2(2107, 5692)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portal"]
 shape = SubResource("RectangleShape2D_cn17j")

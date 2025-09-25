@@ -12,10 +12,17 @@ var destino_atual = null
 
 var right_sequence_index := 0;
 var sequence_list := []
+@onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
+
 
 func _physics_process(_delta: float):
-
+	
+	#var direction = Input.get_axis(controls.move_left, controls.move_right)
+	
+	
+	
 	# input_locked = stopped_on_door
+	
 
 	if (stopped_on_door):
 		input_locked = true
@@ -51,9 +58,21 @@ func _physics_process(_delta: float):
 		
 	
 	var horizontaDirection = Input.get_axis(controls.move_left, controls.move_right)
+	
+	if horizontaDirection > 0:
+		animacion.flip_h = false # Olha para a direita
+	elif horizontaDirection < 0:
+		animacion.flip_h = true  # Olha para a esquerda (espelhado)
+	
 	if (!input_locked):
+		if horizontaDirection != 0:
+			animacion.play("andando")
+		else:
+			animacion.play("parado")
 		velocity.x = 300 * horizontaDirection
+		
 	else:
+		animacion.play("parado")
 		velocity.x = 0
 		
 	move_and_slide()
