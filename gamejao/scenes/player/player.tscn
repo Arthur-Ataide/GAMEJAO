@@ -154,6 +154,9 @@ shape = SubResource("RectangleShape2D_8afob")
 wait_time = 3.5
 autostart = true
 
+[node name="TimeBuff" type="Timer" parent="."]
+wait_time = 5.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -163,3 +166,4 @@ animation = &"correr"
 frame_progress = 0.5744909
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
+[connection signal="timeout" from="TimeBuff" to="." method="_on_time_buff_timeout"]

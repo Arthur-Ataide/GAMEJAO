@@ -103,6 +103,7 @@ position = Vector2(573, -356)
 script = ExtResource("1_v7fe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-92.00001, 70.000015)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_yxgn6")
@@ -829,8 +830,6 @@ destino = NodePath("Marker2D")
 [node name="Marker2D" type="Marker2D" parent="UnlockableDoor2"]
 position = Vector2(-74.84291, 2.610799)
 
-[connection signal="body_entered" from="GeloTeste" to="GeloTeste" method="_on_body_entered"]
-[connection signal="body_exited" from="GeloTeste" to="GeloTeste" method="_on_body_exited"]
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]

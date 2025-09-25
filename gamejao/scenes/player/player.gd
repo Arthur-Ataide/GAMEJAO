@@ -5,6 +5,12 @@ var input_locked := false
 var stopped_on_door := false
 var quant_portas = 0
 @export var jump_force = 300
+
+@export var walk_speed = 300
+@export var run_speed = 600
+@export var ice_speed = 900
+var on_ice := false        
+
 var puzzle_modal_packed: PackedScene = preload("res://props/puzzle_modal.tscn")
 var puzzleModalP1
 var puzzleModalP2
@@ -16,7 +22,6 @@ var destino_atual = null
 var right_sequence_index := 0;
 var sequence_list := []
 @onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
-
 
 func _physics_process(_delta: float):
 
@@ -36,20 +41,34 @@ func _physics_process(_delta: float):
 		velocity.y = -jump_force
 		
 	
-	var horizontaDirection = Input.get_axis(controls.move_left, controls.move_right)
+	var horizontalDirection = Input.get_axis(controls.move_left, controls.move_right)
 	
-	if horizontaDirection > 0:
-		animacion.flip_h = false # Olha para a direita
-	elif horizontaDirection < 0:
-		animacion.flip_h = true  # Olha para a esquerda (espelhado)
-	
-	if (!input_locked):
-		if horizontaDirection != 0:
-			animacion.play("andando")
+	if horizontalDirection > 0:
+		animacion.flip_h = false
+	elif horizontalDirection < 0:
+		animacion.flip_h = true 
+
+	if !input_locked:
+		var target_speed = walk_speed
+
+		if on_ice:
+			target_speed = ice_speed
+			
+		if Input.is_action_pressed(controls.move_up):
+			target_speed = run_speed
+			
+		#target_speed = run_speed
+		
+		velocity.x = target_speed * horizontalDirection
+		
+		if horizontalDirection != 0:
+			if on_ice or abs(velocity.x) >= run_speed:
+				animacion.play("correr")
+			else:
+				animacion.play("andando")
 		else:
 			animacion.play("parado")
-		velocity.x = 300 * horizontaDirection
-		
+			
 	else:
 		animacion.play("parado")
 		velocity.x = 0
@@ -191,7 +210,20 @@ func morrer():
 	global_position = ultimo_ponto_seguro
 	set_physics_process(true) # Reativa a física.
 
+# Chamada pelo PisoDeGelo quando o jogador entra
+func entrou_no_gelo():
+	on_ice = true
+	print("Boost de gelo ATIVO (enquanto estiver no gelo)")
+
+# Chamada pelo PisoDeGelo quando o jogador sai
+func saiu_do_gelo():
+	on_ice = false
+	print("Boost de gelo DESATIVADO")
+
 func _on_time_checkpoint_timeout() -> void:
 	if is_on_floor():
 		ultimo_ponto_seguro = global_position
 		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
+
+func _on_time_buff_timeout() -> void:
+	pass # Replace with function body.

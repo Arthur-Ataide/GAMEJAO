@@ -103,6 +103,7 @@ position = Vector2(573, -356)
 script = ExtResource("1_v7fe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-92.00001, 70.000015)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_yxgn6")
