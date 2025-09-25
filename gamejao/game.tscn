@@ -26,7 +26,7 @@ render_target_update_mode = 4
 position = Vector2(119, -752)
 
 [node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
-position = Vector2(1, -1)
+position = Vector2(2294, 131)
 controls = ExtResource("5_ryrav")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Player"]
@@ -41,7 +41,7 @@ size = Vector2i(480, 135)
 render_target_update_mode = 4
 
 [node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
-position = Vector2(16, -11)
+position = Vector2(2310, -16)
 controls = ExtResource("6_ryrav")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2"]
