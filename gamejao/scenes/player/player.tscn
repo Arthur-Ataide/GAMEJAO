@@ -134,7 +134,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+texture_filter = 1
+texture_repeat = 1
 script = ExtResource("1_dovo2")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
@@ -158,6 +159,7 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
-animation = &"andando"
+animation = &"correr"
+frame_progress = 0.5744909
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
