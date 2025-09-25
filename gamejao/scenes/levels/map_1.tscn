@@ -101,6 +101,7 @@ position = Vector2(573, -356)
 script = ExtResource("1_v7fe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-92.00001, 70.000015)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_yxgn6")
@@ -167,8 +168,13 @@ mesh = SubResource("QuadMesh_ffebq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 shape = SubResource("RectangleShape2D_h2hyn")
 
-[node name="UnlockableDoor" parent="." instance=ExtResource("1_h2hyn")]
-position = Vector2(111, 923)
+[node name="UnlockableDoor" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(402, 341.00003)
+scale = Vector2(2.298147, 2.298147)
+destino = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor"]
+position = Vector2(19.14586, 0.87025356)
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
 position = Vector2(286, 945)
@@ -217,30 +223,6 @@ shape = SubResource("RectangleShape2D_yxgn6")
 
 [node name="Marker2D" type="Marker2D" parent="portal"]
 position = Vector2(-9, -117)
-
-[node name="portalAmarelo" type="StaticBody2D" parent="."]
-position = Vector2(400, 342)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAmarelo"]
-position = Vector2(4, 0.5)
-shape = SubResource("RectangleShape2D_cn17j")
-
-[node name="Sprite2D" type="Sprite2D" parent="portalAmarelo"]
-position = Vector2(4.2499986, 1.0000014)
-scale = Vector2(1.90625, 1.8750002)
-texture = ExtResource("4_ixlcy")
-
-[node name="zona_portal" type="Area2D" parent="portalAmarelo" node_paths=PackedStringArray("destino")]
-position = Vector2(-3, 1)
-script = ExtResource("5_cn17j")
-destino = NodePath("../Marker2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAmarelo/zona_portal"]
-position = Vector2(-9.5, 1)
-shape = SubResource("RectangleShape2D_yxgn6")
-
-[node name="Marker2D" type="Marker2D" parent="portalAmarelo"]
-position = Vector2(25, 2)
 
 [node name="portalAzul" type="StaticBody2D" parent="."]
 position = Vector2(399, -116)
@@ -745,13 +727,19 @@ position = Vector2(571, 250.99997)
 rotation = 0.46782947
 shape = SubResource("RectangleShape2D_st8ga")
 
+[node name="UnlockableDoor2" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(102, 913)
+scale = Vector2(2.298147, 2.298147)
+destino = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor2"]
+position = Vector2(-74.84291, 2.610799)
+
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]
 [connection signal="body_entered" from="zona morte2" to="zona morte2" method="_on_body_entered"]
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_exited"]
-[connection signal="body_entered" from="portalAmarelo/zona_portal" to="portalAmarelo/zona_portal" method="_on_body_entered"]
-[connection signal="body_exited" from="portalAmarelo/zona_portal" to="portalAmarelo/zona_portal" method="_on_body_exited"]
 [connection signal="body_entered" from="portalAzul/zona_portal" to="portalAzul/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portalAzul/zona_portal" to="portalAzul/zona_portal" method="_on_body_exited"]
 [connection signal="body_entered" from="portalLaranja/zona_portal" to="portalLaranja/zona_portal" method="_on_body_entered"]

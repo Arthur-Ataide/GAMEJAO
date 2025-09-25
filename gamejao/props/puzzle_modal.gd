@@ -24,3 +24,10 @@ func createArrowList(list):
 		if i == "l":
 			var left_arrow_inst = left_arrow.instantiate()
 			$SubViewportContainer/SubViewport/HBoxContainer.add_child(left_arrow_inst)
+
+func paintArrow(index, verde):
+	$SubViewportContainer/SubViewport/HBoxContainer.get_child(index).paint_arrow(verde)
+	
+func paintAllArrowsWhite():
+	for i in $SubViewportContainer/SubViewport/HBoxContainer.get_children():
+		i.paint_arrow(false)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ipwie4elrbuu"]
+[gd_scene load_steps=7 format=3 uid="uid://ipwie4elrbuu"]
 
 [ext_resource type="Script" uid="uid://kq7bn3yheph5" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bhfodnwgyinnw" path="res://scenes/player/player.tscn" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dggawkgrxx0wp" path="res://scenes/levels/map_1.tscn" id="4_fc0e3"]
 [ext_resource type="Resource" uid="uid://cfwxggqkfjrnh" path="res://scenes/player/player_1_controls.tres" id="5_ryrav"]
-[ext_resource type="PackedScene" uid="uid://wb5j2310mo22" path="res://props/puzzle_modal.tscn" id="6_j5wjh"]
 [ext_resource type="Resource" uid="uid://cnjpt67ipxh4a" path="res://scenes/player/player_2_controls.tres" id="6_ryrav"]
 [ext_resource type="Script" uid="uid://c3hk7wafk2cgx" path="res://camera_2d.gd" id="7_eow3j"]
 
@@ -24,6 +23,7 @@ size = Vector2i(480, 135)
 render_target_update_mode = 4
 
 [node name="Mapa1" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("4_fc0e3")]
+position = Vector2(119, -752)
 
 [node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
 position = Vector2(1, -1)
@@ -41,21 +41,14 @@ size = Vector2i(480, 135)
 render_target_update_mode = 4
 
 [node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
-position = Vector2(1, -1)
+position = Vector2(16, -11)
 controls = ExtResource("6_ryrav")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2"]
 texture_repeat = 1
 script = ExtResource("7_eow3j")
 
-[node name="PuzzleModal" parent="." instance=ExtResource("6_j5wjh")]
-offset_left = 181.0
-offset_top = 48.0
-offset_right = 181.0
-offset_bottom = 48.0
-
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Player" method="_on_mapa_1_player_touched_door"]
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2" method="_on_mapa_1_player_touched_door"]
 
 [editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1"]
-[editable path="PuzzleModal"]
