@@ -92,6 +92,8 @@ size = Vector2(36.251953, 6.8809204)
 size = Vector2(100.56781, 6.039673)
 
 [node name="Mapa1" type="Node2D"]
+texture_filter = 1
+texture_repeat = 1
 position = Vector2(573, -356)
 script = ExtResource("1_v7fe1")
 
