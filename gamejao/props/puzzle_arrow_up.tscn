@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl252ohatkoyb"]
+[gd_scene load_steps=3 format=3 uid="uid://cl252ohatkoyb"]
 
 [ext_resource type="Texture2D" uid="uid://cota1ll68vbap" path="res://Tiles/Tiles/tile_0070.png" id="1_2qjvt"]
+[ext_resource type="Script" uid="uid://cwcyk1qn65vte" path="res://props/puzzle_arrow_up.gd" id="1_4xi4t"]
 
 [node name="Puzzle_arrow_up" type="SubViewportContainer"]
+script = ExtResource("1_4xi4t")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
