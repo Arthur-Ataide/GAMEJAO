@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dggawkgrxx0wp"]
+[gd_scene load_steps=37 format=3 uid="uid://dggawkgrxx0wp"]
 
 [ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
 [ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
@@ -19,10 +19,10 @@ size = Vector2(606, 20)
 size = Vector2(1476, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn17j"]
-size = Vector2(16, 16)
+size = Vector2(30, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxgn6"]
-size = Vector2(1, 16)
+size = Vector2(1, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0lqh"]
 size = Vector2(70.5, 13)
@@ -54,20 +54,53 @@ size = Vector2(276, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5igu6"]
 size = Vector2(396.5, 13)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvcvr"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd24e"]
 size = Vector2(7, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvcvr"]
 size = Vector2(13.5, 15.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma5wf"]
+size = Vector2(251, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyuta"]
+size = Vector2(247, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1bd2"]
+size = Vector2(59, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12ehn"]
+size = Vector2(59, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwh6b"]
+size = Vector2(71, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6myl"]
+size = Vector2(37, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsl3g"]
+size = Vector2(67, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a60n2"]
+size = Vector2(9.5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr3cv"]
+size = Vector2(221, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w6ym"]
+size = Vector2(67, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcd1s"]
+size = Vector2(36.251953, 6.8809204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st8ga"]
+size = Vector2(100.56781, 6.039673)
+
 [node name="Mapa1" type="Node2D"]
 position = Vector2(573, -356)
 script = ExtResource("1_v7fe1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-92.00001, 70.000015)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_yxgn6")
@@ -185,6 +218,102 @@ shape = SubResource("RectangleShape2D_yxgn6")
 [node name="Marker2D" type="Marker2D" parent="portal"]
 position = Vector2(-9, -117)
 
+[node name="portalAmarelo" type="StaticBody2D" parent="."]
+position = Vector2(400, 342)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAmarelo"]
+position = Vector2(4, 0.5)
+shape = SubResource("RectangleShape2D_cn17j")
+
+[node name="Sprite2D" type="Sprite2D" parent="portalAmarelo"]
+position = Vector2(4.2499986, 1.0000014)
+scale = Vector2(1.90625, 1.8750002)
+texture = ExtResource("4_ixlcy")
+
+[node name="zona_portal" type="Area2D" parent="portalAmarelo" node_paths=PackedStringArray("destino")]
+position = Vector2(-3, 1)
+script = ExtResource("5_cn17j")
+destino = NodePath("../Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAmarelo/zona_portal"]
+position = Vector2(-9.5, 1)
+shape = SubResource("RectangleShape2D_yxgn6")
+
+[node name="Marker2D" type="Marker2D" parent="portalAmarelo"]
+position = Vector2(25, 2)
+
+[node name="portalAzul" type="StaticBody2D" parent="."]
+position = Vector2(399, -116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAzul"]
+position = Vector2(4, 0.5)
+shape = SubResource("RectangleShape2D_cn17j")
+
+[node name="Sprite2D" type="Sprite2D" parent="portalAzul"]
+position = Vector2(4.2499986, 1.0000014)
+scale = Vector2(1.90625, 1.8750002)
+texture = ExtResource("4_ixlcy")
+
+[node name="zona_portal" type="Area2D" parent="portalAzul" node_paths=PackedStringArray("destino")]
+position = Vector2(33, 2)
+script = ExtResource("5_cn17j")
+destino = NodePath("../Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAzul/zona_portal"]
+position = Vector2(-9.5, 1)
+shape = SubResource("RectangleShape2D_yxgn6")
+
+[node name="Marker2D" type="Marker2D" parent="portalAzul"]
+position = Vector2(-25, 3)
+
+[node name="portalLaranja" type="StaticBody2D" parent="."]
+position = Vector2(-592, 343)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalLaranja"]
+position = Vector2(4, 0.5)
+shape = SubResource("RectangleShape2D_cn17j")
+
+[node name="Sprite2D" type="Sprite2D" parent="portalLaranja"]
+position = Vector2(4.2499986, 1.0000014)
+scale = Vector2(1.90625, 1.8750002)
+texture = ExtResource("4_ixlcy")
+
+[node name="zona_portal" type="Area2D" parent="portalLaranja" node_paths=PackedStringArray("destino")]
+position = Vector2(-3, 1)
+script = ExtResource("5_cn17j")
+destino = NodePath("../Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalLaranja/zona_portal"]
+position = Vector2(-9.5, 1)
+shape = SubResource("RectangleShape2D_yxgn6")
+
+[node name="Marker2D" type="Marker2D" parent="portalLaranja"]
+position = Vector2(25, 2)
+
+[node name="portalVerde" type="StaticBody2D" parent="."]
+position = Vector2(-592, 343)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalVerde"]
+position = Vector2(4, 0.5)
+shape = SubResource("RectangleShape2D_cn17j")
+
+[node name="Sprite2D" type="Sprite2D" parent="portalVerde"]
+position = Vector2(4.2499986, 1.0000014)
+scale = Vector2(1.90625, 1.8750002)
+texture = ExtResource("4_ixlcy")
+
+[node name="zona_portal" type="Area2D" parent="portalVerde" node_paths=PackedStringArray("destino")]
+position = Vector2(-3, 1)
+script = ExtResource("5_cn17j")
+destino = NodePath("../Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portalVerde/zona_portal"]
+position = Vector2(-9.5, 1)
+shape = SubResource("RectangleShape2D_yxgn6")
+
+[node name="Marker2D" type="Marker2D" parent="portalVerde"]
+position = Vector2(25, 2)
+
 [node name="Verde" type="StaticBody2D" parent="."]
 
 [node name="ChaoVerde" type="StaticBody2D" parent="Verde"]
@@ -277,16 +406,6 @@ position = Vector2(98, -4)
 position = Vector2(22.25, -2)
 shape = SubResource("RectangleShape2D_jypjn")
 
-[node name="ParedeVerde1" type="StaticBody2D" parent="Verde"]
-position = Vector2(-429, 368)
-
-[node name="Sprite2D" type="Sprite2D" parent="Verde/ParedeVerde1"]
-position = Vector2(98, -4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Verde/ParedeVerde1"]
-position = Vector2(-359, -70)
-shape = SubResource("RectangleShape2D_jypjn")
-
 [node name="ParedeVerde" type="StaticBody2D" parent="Verde"]
 position = Vector2(621, -252)
 
@@ -317,10 +436,6 @@ position = Vector2(98, -4)
 position = Vector2(210.75, -2)
 shape = SubResource("RectangleShape2D_5igu6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Verde"]
-position = Vector2(-1049, 214)
-shape = SubResource("CapsuleShape2D_yvcvr")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="Verde"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Verde/StaticBody2D"]
@@ -340,7 +455,7 @@ position = Vector2(-589, 317)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BordaMapa"]
 position = Vector2(-26, -51)
-polygon = PackedVector2Array(1, 93, 1, 107, -217, 106, -216, -540, 1041, -539, 1261, -539, 1260, 107, 863, 106, 863, 93, 1191, 93, 1249, 20, 1249, -122, 1222, -106, 1217, -114, 1248, -128, 1249, -225, 1166, -202, 1164, -209, 1248, -232, 1249, -528, 1042, -526, 1042, -392, 1018, -402, 993, -392, 993, -527, -171, -527, -131, -496, -125, -503, -120, -499, -126, -492, -110, -480, -104, -486, -100, -483, -105, -475, -79, -456, -102, -441, -109, -417, -204, -489, -204, 93)
+polygon = PackedVector2Array(1, 93, 1, 107, -217, 106, -216, -540, 1041, -539, 1261, -539, 1260, 107, 863, 106, 863, 93, 1191, 93, 1249, 20, 1249, -122, 1222, -106, 1217, -111, 1248, -128, 1249, -225, 1166, -202, 1164, -209, 1248, -232, 1249, -528, 1042, -526, 1042, -392, 1018, -402, 993, -392, 993, -527, -171, -527, -131, -496, -125, -503, -120, -499, -126, -492, -110, -480, -104, -486, -100, -483, -105, -475, -79, -456, -102, -441, -109, -417, -204, -489, -204, 93)
 
 [node name="ParkorVerde" type="StaticBody2D" parent="."]
 
@@ -380,6 +495,14 @@ shape = SubResource("RectangleShape2D_wd24e")
 position = Vector2(26, -19)
 shape = SubResource("RectangleShape2D_wd24e")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(523, -482)
+shape = SubResource("RectangleShape2D_wd24e")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(556, -526)
+shape = SubResource("RectangleShape2D_wd24e")
+
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D7"]
@@ -398,6 +521,10 @@ polygon = PackedVector2Array(261, 350, 345, 350, 345, 335, 261, 335)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D8"]
 polygon = PackedVector2Array(512, 340, 517, 340, 517, 69, 591, 128, 595, 123, 517, 59, 517, 16, 576, 16, 581, 12, 517, -100, 484, -100, 485, 79, 512, 79)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D8"]
+position = Vector2(139, -95)
+polygon = PackedVector2Array(176, -26, 176, -40, -34, -39, -34, -49, -66, -49, -66, -40, -41, -40, -41, -25)
 
 [node name="Quadrados" type="StaticBody2D" parent="."]
 position = Vector2(495, 335)
@@ -438,8 +565,196 @@ shape = SubResource("RectangleShape2D_yvcvr")
 position = Vector2(-38, -221)
 shape = SubResource("RectangleShape2D_yvcvr")
 
+[node name="Gelo" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(208.5, -104.5)
+shape = SubResource("RectangleShape2D_ma5wf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gelo"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(-107.5, -104)
+shape = SubResource("RectangleShape2D_uyuta")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(-470, -104)
+shape = SubResource("RectangleShape2D_r1bd2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(-325.5, -104)
+shape = SubResource("RectangleShape2D_12ehn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(-397.5, -104)
+shape = SubResource("RectangleShape2D_gwh6b")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(-526.5, -104)
+shape = SubResource("RectangleShape2D_m6myl")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Gelo"]
+position = Vector2(-336.5, -217.5)
+shape = SubResource("RectangleShape2D_hsl3g")
+
+[node name="quadradinhos" type="StaticBody2D" parent="."]
+position = Vector2(-107, -154)
+
+[node name="Sprite2D" type="Sprite2D" parent="quadradinhos"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(5, -52)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(4, -25)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(33, -25)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(17, -13)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(53, -16)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(70, -12)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(89, -18)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(105, -13)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(124, -6)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-61, -68)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-75, -33)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-54, -43)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-106, -61)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-132, -31)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-334.25, -51)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-332, -34)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-221, -11)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-173, -49)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-162, 23)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-133, -48)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-101, -38)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-87, -72)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-75, -19)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-40, -59)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-24, -46)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-36, -30)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(-8, -36)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="quadradinhos"]
+position = Vector2(156, -4)
+shape = SubResource("RectangleShape2D_a60n2")
+
+[node name="lava" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava"]
+position = Vector2(-88.5, -145.5)
+shape = SubResource("RectangleShape2D_fr3cv")
+
+[node name="Sprite2D" type="Sprite2D" parent="lava"]
+
+[node name="azul" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="azul"]
+position = Vector2(-336.5, -214)
+shape = SubResource("RectangleShape2D_1w6ym")
+
+[node name="Sprite2D" type="Sprite2D" parent="azul"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="azul"]
+polygon = PackedVector2Array(22, -145, 22, -140, -207, -140, -207, -145, -216, -145, -216, -150, -232, -150, -232, -155, -267, -155, -267, -150, -274, -150, -274, -154, -296, -154, -296, -159, -223, -159, -223, -154, -207, -154, -207, -150, -199, -150, -199, -145)
+
+[node name="amarelo" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="amarelo"]
+position = Vector2(563.25134, 174.99223)
+rotation = -0.48718897
+shape = SubResource("RectangleShape2D_gcd1s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="amarelo"]
+position = Vector2(571, 250.99997)
+rotation = 0.46782947
+shape = SubResource("RectangleShape2D_st8ga")
+
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]
 [connection signal="body_entered" from="zona morte2" to="zona morte2" method="_on_body_entered"]
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_exited"]
+[connection signal="body_entered" from="portalAmarelo/zona_portal" to="portalAmarelo/zona_portal" method="_on_body_entered"]
+[connection signal="body_exited" from="portalAmarelo/zona_portal" to="portalAmarelo/zona_portal" method="_on_body_exited"]
+[connection signal="body_entered" from="portalAzul/zona_portal" to="portalAzul/zona_portal" method="_on_body_entered"]
+[connection signal="body_exited" from="portalAzul/zona_portal" to="portalAzul/zona_portal" method="_on_body_exited"]
+[connection signal="body_entered" from="portalLaranja/zona_portal" to="portalLaranja/zona_portal" method="_on_body_entered"]
+[connection signal="body_exited" from="portalLaranja/zona_portal" to="portalLaranja/zona_portal" method="_on_body_exited"]
+[connection signal="body_entered" from="portalVerde/zona_portal" to="portalVerde/zona_portal" method="_on_body_entered"]
+[connection signal="body_exited" from="portalVerde/zona_portal" to="portalVerde/zona_portal" method="_on_body_exited"]

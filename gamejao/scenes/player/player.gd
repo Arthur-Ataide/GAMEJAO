@@ -145,4 +145,3 @@ func _on_time_checkpoint_timeout() -> void:
 	if is_on_floor():
 		ultimo_ponto_seguro = global_position
 		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
-
