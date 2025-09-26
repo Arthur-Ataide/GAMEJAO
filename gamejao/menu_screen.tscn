@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr5oakjtssd2d"]
+
+[ext_resource type="Script" uid="uid://b1cq42ko1t6ca" path="res://menu_screen.gd" id="1_iefc8"]
+[ext_resource type="VideoStream" uid="uid://1facqkpmkgkl" path="res://scenes/Telal1 (online-video-cutter.com).ogv" id="2_iefc8"]
+[ext_resource type="AudioStream" uid="uid://owibwpaf06ni" path="res://Musicas/telaInicial.ogg" id="3_ylmtb"]
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iefc8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.5
+offset_top = -268.5
+offset_right = 480.5
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_iefc8")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ylmtb")
+autoplay = true
