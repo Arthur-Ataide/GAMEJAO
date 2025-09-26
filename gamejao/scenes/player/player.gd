@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var gravity = 30
+var voltas_completas = 0
 var input_locked := false
 var stopped_on_door := false
 var quant_portas = 0
@@ -332,7 +333,16 @@ func unlock_player() -> void:
 		global_position = destino_atual.global_position
 		ultimo_ponto_seguro = destino_atual.global_position
 		quant_portas+=1
-		if quant_portas % 4 == 0: print(quant_portas/4, " VOLTAS COMPLETAS")
+		if quant_portas % 4 == 0: 
+			voltas_completas = quant_portas/4
+			print(voltas_completas, " VOLTAS COMPLETAS")
+			if (voltas_completas >= 1):
+				print("VITÓRIA! Redirecionando para a tela final...")
+				if (controls.player_index == 0):
+					go_to_the_end_player1()
+				else:
+					go_to_the_end_player2()
+				
 			
 	else:
 		print("Interagindo com porta sem destino (possivelmente um puzzle).")
@@ -454,3 +464,10 @@ func _on_time_checkpoint_timeout() -> void:
 
 func _on_time_double_tap_timeout() -> void:
 	last_tap_direction = 0 
+	
+	
+func go_to_the_end_player1() -> void:
+		get_tree().change_scene_to_file("res://end.tscn")
+		
+func go_to_the_end_player2() -> void:
+		get_tree().change_scene_to_file("res://end(1).tscn")

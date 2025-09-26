@@ -14306,7 +14306,27 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_oniax")
 
 [node name="Fogo" parent="." instance=ExtResource("17_pek4u")]
-position = Vector2(4392, 2488)
+position = Vector2(4391, 2488)
+rotation = -3.1292405
+
+[node name="Fogo4" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4391, 2472)
+rotation = -3.1292405
+
+[node name="Fogo5" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4392, 2456.0002)
+rotation = -3.1292405
+
+[node name="Fogo7" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4391.0005, 2184)
+rotation = -3.1292405
+
+[node name="Fogo8" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4392.0005, 2168.0002)
+rotation = -3.1292405
+
+[node name="Fogo9" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4392.0005, 2152)
 rotation = -3.1292405
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
@@ -14386,6 +14406,42 @@ position = Vector2(1131, 2733)
 
 [node name="BuffTeste16" parent="." instance=ExtResource("24_gwh6b")]
 position = Vector2(2656, 2779)
+
+[node name="Fogo2" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4137, 2376)
+
+[node name="Fogo3" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4137, 2360)
+
+[node name="Fogo6" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4137, 2344)
+
+[node name="Fogo10" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4313, 1976)
+
+[node name="Fogo11" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4313, 1960)
+
+[node name="Fogo12" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4313, 1944)
+
+[node name="Fogo13" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4104, 1624)
+
+[node name="Fogo14" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4104, 1608)
+
+[node name="Fogo15" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4104, 1592)
+
+[node name="Fogo16" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4104, 1576)
+
+[node name="Fogo17" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4104, 1560)
+
+[node name="Fogo18" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4104, 1544)
 
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_exited"]
