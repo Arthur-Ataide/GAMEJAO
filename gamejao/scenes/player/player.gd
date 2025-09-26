@@ -5,7 +5,18 @@ var input_locked := false
 var stopped_on_door := false
 var quant_portas = 0
 @export var jump_force = 300
+@export var buff_duracao := 5.0
 
+# Lista para guardar todos os buffs ativos
+var active_buffs: Array = []
+
+# Guardaremos as velocidades base para não perdê-las
+var base_run_speed: float
+var base_jump_force: float
+var base_walk_speed: float 
+
+@export var aumento_velocidade = 300
+@export var aumento_pulo = 150
 @export var walk_speed = 300
 @export var run_speed = 600
 @export var ice_speed = 900
@@ -23,8 +34,13 @@ var right_sequence_index := 0;
 var sequence_list := []
 @onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
 
-func _physics_process(_delta: float):
+func _ready():
+	base_run_speed = run_speed
+	base_jump_force = jump_force
+	base_walk_speed = walk_speed
 
+func _physics_process(_delta: float):
+	atualizar_buffs(_delta)
 	input_locked = stopped_on_door
 
 	if !is_on_floor():
@@ -62,7 +78,7 @@ func _physics_process(_delta: float):
 		velocity.x = target_speed * horizontalDirection
 		
 		if horizontalDirection != 0:
-			if on_ice or abs(velocity.x) >= run_speed:
+			if abs(velocity.x) > base_walk_speed:
 				animacion.play("correr")
 			else:
 				animacion.play("andando")
@@ -220,10 +236,68 @@ func saiu_do_gelo():
 	on_ice = false
 	print("Boost de gelo DESATIVADO")
 
+func receber_buff_aleatorio(tipo_buff):
+	# Cria um novo dicionário para representar o buff
+	var novo_buff = {
+		"tipo": tipo_buff,
+		"tempo_restante": buff_duracao # Começa com 5 segundos
+	}
+	
+	# Adiciona o novo buff à lista de buffs ativos
+	active_buffs.append(novo_buff)
+	
+	# Recalcula os status do jogador imediatamente
+	recalcular_status()
+	
+	if tipo_buff == "velocidade":
+		print("BUFF DE VELOCIDADE ACUMULADO!")
+		print()
+	elif tipo_buff == "pulo":
+		print("BUFF DE PULO ACUMULADO!")
+
+# Esta função deve ser chamada a cada frame no _physics_process
+func atualizar_buffs(delta: float):
+	# Se não há buffs, não há o que fazer
+	if active_buffs.is_empty():
+		return
+
+	var buff_expirou = false
+	# Usamos um loop reverso para poder remover itens sem problemas
+	for i in range(active_buffs.size() - 1, -1, -1):
+		var buff = active_buffs[i]
+		buff.tempo_restante -= delta # Diminui o tempo restante
+
+		# Se o tempo acabou, remove o buff
+		if buff.tempo_restante <= 0:
+			active_buffs.remove_at(i)
+			buff_expirou = true
+			print("Um buff de %s acabou!" % buff.tipo)
+	
+	# Se algum buff expirou, precisamos recalcular os status
+	if buff_expirou:
+		recalcular_status()
+
+# Esta função centraliza o cálculo dos status
+func recalcular_status():
+	# Zera os bônus para recalcular
+	var speed_bonus = 0
+	var jump_bonus = 0
+	
+	# Itera por todos os buffs ativos e soma seus efeitos
+	for buff in active_buffs:
+		if buff.tipo == "velocidade":
+			speed_bonus += aumento_velocidade
+		elif buff.tipo == "pulo":
+			jump_bonus += aumento_pulo
+			
+	# Aplica os bônus calculados aos status base do personagem
+	walk_speed = base_walk_speed + speed_bonus
+	run_speed = base_run_speed + speed_bonus
+	jump_force = base_jump_force + jump_bonus
+	
+	print("Status atualizados: Caminhada=%s, Corrida=%s, Pulo=%s" % [walk_speed, run_speed, jump_force])
+
 func _on_time_checkpoint_timeout() -> void:
 	if is_on_floor():
 		ultimo_ponto_seguro = global_position
 		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
-
-func _on_time_buff_timeout() -> void:
-	pass # Replace with function body.
