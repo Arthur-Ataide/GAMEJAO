@@ -41,7 +41,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Fogo" type="Area2D"]
+[node name="Fogo" type="Area2D" groups=["hazards"]]
 script = ExtResource("1_jum2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

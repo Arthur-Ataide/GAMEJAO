@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bhfodnwgyinnw"]
+[gd_scene load_steps=43 format=3 uid="uid://bhfodnwgyinnw"]
 
 [ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
@@ -187,6 +187,8 @@ animations = [{
 radius = 9.0
 height = 18.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wva7c"]
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 texture_repeat = 1
@@ -219,6 +221,11 @@ animation = &"andando"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
+
+[node name="HazardDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
+shape = SubResource("RectangleShape2D_wva7c")
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-10, 0)
