@@ -49,6 +49,9 @@ ponto_inicial = NodePath("../../../ViewPortContainerPlayer1/ViewportPlayer1/Mapa
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2"]
 texture_repeat = 1
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_bottom_margin = 0.3
 script = ExtResource("7_eow3j")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer"]
@@ -60,3 +63,6 @@ autoplay = true
 
 [editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1"]
 [editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor3"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor6"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor4"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor5"]

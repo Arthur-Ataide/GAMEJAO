@@ -1,45 +1,55 @@
-[gd_scene load_steps=37 format=3 uid="uid://bhfodnwgyinnw"]
+[gd_scene load_steps=42 format=3 uid="uid://bhfodnwgyinnw"]
 
 [ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
-[ext_resource type="Texture2D" uid="uid://bevyto6rpfas2" path="res://scenes/animacao/player/agarrado/horse_parede1.png" id="3_4hvnv"]
+[ext_resource type="Texture2D" uid="uid://craxqhd0ru5yv" path="res://scenes/animacao/player/agarrado/horse_parede1.png" id="3_4hvnv"]
 [ext_resource type="Texture2D" uid="uid://b5u5c40071auc" path="res://scenes/animacao/player/frente/horse_computador1.png" id="3_ugbui"]
-[ext_resource type="Texture2D" uid="uid://bk5ka10vn4ae5" path="res://scenes/animacao/player/agarrado/horse_parede2.png" id="4_bbmj2"]
+[ext_resource type="Texture2D" uid="uid://balt2c8i3bw20" path="res://scenes/animacao/player/agarrado/horse_parede2.png" id="4_bbmj2"]
 [ext_resource type="Texture2D" uid="uid://cerlmd6gaymn4" path="res://scenes/animacao/player/frente/horse_computador2.png" id="4_fcs02"]
-[ext_resource type="Texture2D" uid="uid://cgdbjqo1oej5b" path="res://scenes/animacao/player/agarrado/horse_parede3.png" id="5_kxw46"]
+[ext_resource type="Texture2D" uid="uid://cksb1j1ktqphj" path="res://scenes/animacao/player/agarrado/horse_parede3.png" id="5_kxw46"]
 [ext_resource type="Texture2D" uid="uid://dk8tm0s7ijchv" path="res://scenes/animacao/player/frente/horse_computador3.png" id="5_myrg7"]
-[ext_resource type="Texture2D" uid="uid://b8nxjtsyynif" path="res://scenes/animacao/player/agarrado/horse_parede4.png" id="6_8qxvo"]
+[ext_resource type="Texture2D" uid="uid://dfo7kdhp3gilu" path="res://scenes/animacao/player/agarrado/horse_parede4.png" id="6_8qxvo"]
 [ext_resource type="Texture2D" uid="uid://qulbkapfvjee" path="res://scenes/animacao/player/frente/horse_computador4.png" id="6_kvlxm"]
-[ext_resource type="Texture2D" uid="uid://cynpr8qyncffx" path="res://scenes/animacao/player/agarrado/horse_parede5.png" id="7_5q8fn"]
+[ext_resource type="Texture2D" uid="uid://c0ykoldtwomhl" path="res://scenes/animacao/player/agarrado/horse_parede5.png" id="7_5q8fn"]
 [ext_resource type="Texture2D" uid="uid://cef4bbe41imjl" path="res://scenes/animacao/player/frente/horse_computador5.png" id="7_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://ccr7880n82t8o" path="res://scenes/animacao/player/frente/horse_computador6.png" id="8_lgqa7"]
-[ext_resource type="Texture2D" uid="uid://cvdnpo5a4ud5b" path="res://scenes/animacao/player/agarrado/horse_parede6.png" id="8_wva7c"]
+[ext_resource type="Texture2D" uid="uid://p85p10xsf6d4" path="res://scenes/animacao/player/agarrado/horse_parede6.png" id="8_wva7c"]
 [ext_resource type="Texture2D" uid="uid://8fdkchebc0t2" path="res://scenes/animacao/player/correr_frente/horse_computador1.png" id="9_6cv16"]
-[ext_resource type="Texture2D" uid="uid://cfnofvcbw2dhd" path="res://scenes/animacao/player/agarrado/horse_parede7.png" id="9_7obkq"]
+[ext_resource type="Texture2D" uid="uid://dxpmkyjhxefh3" path="res://scenes/animacao/player/agarrado/horse_parede7.png" id="9_7obkq"]
 [ext_resource type="Texture2D" uid="uid://bo6r4fnrjv0h5" path="res://scenes/animacao/player/correr_frente/horse_computador2.png" id="10_j4nxn"]
 [ext_resource type="Texture2D" uid="uid://b5gvxcskakobo" path="res://scenes/animacao/player/correr_frente/horse_computador3.png" id="11_28m0y"]
 [ext_resource type="Texture2D" uid="uid://b0cdhfvnwwena" path="res://scenes/animacao/player/correr_frente/horse_computador4.png" id="12_uniwh"]
 [ext_resource type="Texture2D" uid="uid://cocptfm1xnup6" path="res://scenes/animacao/player/correr_frente/horse_computador5.png" id="13_iqsei"]
 [ext_resource type="Texture2D" uid="uid://83l8myr7mo0f" path="res://scenes/animacao/player/correr_frente/horse_computador6.png" id="14_tffgl"]
+[ext_resource type="Texture2D" uid="uid://b6uqiea5o81xc" path="res://scenes/animacao/player/pulando/horse_pulo1.png" id="15_j4nxn"]
+[ext_resource type="Texture2D" uid="uid://bmlvd2lue2br0" path="res://scenes/animacao/player/pulando/horse_pulo2.png" id="16_28m0y"]
+[ext_resource type="Texture2D" uid="uid://cnhewbn75k7hy" path="res://scenes/animacao/player/pulando/horse_pulo3.png" id="17_uniwh"]
+[ext_resource type="Texture2D" uid="uid://b16sasju6edgt" path="res://scenes/animacao/player/pulando/horse_pulo4.png" id="18_iqsei"]
+[ext_resource type="Texture2D" uid="uid://b8vao4rebryle" path="res://scenes/animacao/player/pulando/horse_pulo5.png" id="19_tffgl"]
+[ext_resource type="Texture2D" uid="uid://bw8ei5kvqhfku" path="res://scenes/animacao/player/pulando/horse_pulo6.png" id="20_pk8ii"]
+[ext_resource type="Texture2D" uid="uid://chvxan4omvd0t" path="res://scenes/animacao/player/pulando/horse_pulo7.png" id="21_5mf0n"]
+[ext_resource type="Texture2D" uid="uid://crfef2gc2l6fa" path="res://scenes/animacao/player/pulando/horse_pulo8.png" id="22_4hvnv"]
+[ext_resource type="Texture2D" uid="uid://b8d8ltbcu0wvt" path="res://scenes/animacao/player/pulando/horse_pulo9.png" id="23_bbmj2"]
+[ext_resource type="Texture2D" uid="uid://cymskocih4qv6" path="res://scenes/animacao/player/pulando/horse_pulo10.png" id="24_kxw46"]
+[ext_resource type="Texture2D" uid="uid://c8ei5tjxrpjau" path="res://scenes/animacao/player/pulando/horse_pulo11.png" id="25_8qxvo"]
+[ext_resource type="Texture2D" uid="uid://cydirl7djgrp4" path="res://scenes/animacao/player/pulando/horse_pulo12.png" id="26_5q8fn"]
 [ext_resource type="AudioStream" uid="uid://fp6jf6bo5iwy" path="res://Sons Efeitos/jump.wav" id="27_j4nxn"]
+[ext_resource type="Texture2D" uid="uid://fx4njysv3bhg" path="res://scenes/animacao/player/pulando/horse_pulo13.png" id="27_wva7c"]
 [ext_resource type="AudioStream" uid="uid://cyt6oaofr3v60" path="res://Sons Efeitos/morte.wav" id="28_28m0y"]
 [ext_resource type="AudioStream" uid="uid://cx6pww7cyuo0r" path="res://Sons Efeitos/buff.wav" id="29_uniwh"]
-[ext_resource type="Texture2D" uid="uid://dfd82eg6wampl" path="res://scenes/animacao/player/pulando/horse_pulo1.png" id="15_j4nxn"]
-[ext_resource type="Texture2D" uid="uid://c8hdi3nlh4ciw" path="res://scenes/animacao/player/pulando/horse_pulo2.png" id="16_28m0y"]
-[ext_resource type="Texture2D" uid="uid://dgtl60hxljo5w" path="res://scenes/animacao/player/pulando/horse_pulo3.png" id="17_uniwh"]
-[ext_resource type="Texture2D" uid="uid://ce8pq1erf74in" path="res://scenes/animacao/player/pulando/horse_pulo4.png" id="18_iqsei"]
-[ext_resource type="Texture2D" uid="uid://cq45r4hyy3tqx" path="res://scenes/animacao/player/pulando/horse_pulo5.png" id="19_tffgl"]
-[ext_resource type="Texture2D" uid="uid://d33qiey1a8cj" path="res://scenes/animacao/player/pulando/horse_pulo6.png" id="20_pk8ii"]
-[ext_resource type="Texture2D" uid="uid://duni3x4ug15uu" path="res://scenes/animacao/player/pulando/horse_pulo7.png" id="21_5mf0n"]
-[ext_resource type="Texture2D" uid="uid://t8bpc5g7cwbq" path="res://scenes/animacao/player/pulando/horse_pulo8.png" id="22_4hvnv"]
-[ext_resource type="Texture2D" uid="uid://c474htwfas6vy" path="res://scenes/animacao/player/pulando/horse_pulo9.png" id="23_bbmj2"]
-[ext_resource type="Texture2D" uid="uid://dwft0aswycxv4" path="res://scenes/animacao/player/pulando/horse_pulo10.png" id="24_kxw46"]
-[ext_resource type="Texture2D" uid="uid://0ji7sinv24b2" path="res://scenes/animacao/player/pulando/horse_pulo11.png" id="25_8qxvo"]
-[ext_resource type="Texture2D" uid="uid://bb5fd3w8uvgyv" path="res://scenes/animacao/player/pulando/horse_pulo12.png" id="26_5q8fn"]
-[ext_resource type="Texture2D" uid="uid://dxqmrtqy8tq8v" path="res://scenes/animacao/player/pulando/horse_pulo13.png" id="27_wva7c"]
+[ext_resource type="AudioStream" uid="uid://cbn4liol3i8v7" path="res://Sons Efeitos/selecionarTelaInicial.wav" id="31_tffgl"]
+[ext_resource type="AudioStream" uid="uid://5yr4xl0wu67r" path="res://Sons Efeitos/WrongPasswordSound.wav" id="32_pk8ii"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8qxvo")
+}],
+"loop": true,
+"name": &"agarrado",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_4hvnv")
@@ -52,19 +62,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_8qxvo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_5q8fn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_wva7c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_7obkq")
 }],
-"loop": true,
-"name": &"agarrado",
-"speed": 5.0
+"loop": false,
+"name": &"agarrando",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,6 +112,23 @@ animations = [{
 "loop": true,
 "name": &"correr",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8qxvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5q8fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wva7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7obkq")
+}],
+"loop": false,
+"name": &"despregar",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,11 +212,10 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.99999994, -7)
+position = Vector2(1.0000002, -7)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
-animation = &"agarrado"
-frame_progress = 0.8806623
+animation = &"andando"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
@@ -220,6 +237,14 @@ volume_db = -14.829
 [node name="BuffSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_uniwh")
 volume_db = -14.829
+
+[node name="PasswordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_tffgl")
+volume_db = -16.762
+
+[node name="WrongPasswordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_pk8ii")
+volume_db = -8.175
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
 [connection signal="timeout" from="TimeDoubleTap" to="." method="_on_time_double_tap_timeout"]
