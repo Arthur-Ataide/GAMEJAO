@@ -6,6 +6,9 @@ var stopped_on_door := false
 var quant_portas = 0
 @export var jump_force = 300
 @export var buff_duracao := 5.0
+@onready var jump_sound: AudioStreamPlayer = $JumpSound
+@onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var buff_sound: AudioStreamPlayer = $BuffSound
 
 # Lista para guardar todos os buffs ativos
 var active_buffs: Array = []
@@ -104,11 +107,13 @@ func _physics_process(_delta: float):
 			encostouNaParede = false
 			desencostouDaParede = false
 			velocity.y = -jump_force
+			jump_sound.play()
 		
 		
 		
 	if !input_locked && (Input.is_action_just_pressed(controls.move_up) && (is_on_floor())):
 		velocity.y = -jump_force
+		jump_sound.play()
 		
 	
 	var horizontalDirection = Input.get_axis(controls.move_left, controls.move_right)
@@ -306,6 +311,7 @@ func set_destino_e_estado_da_porta(novo_destino, esta_perto):
 
 # morte
 func morrer():
+	death_sound.play()
 	print("O personagem morreu! Aguardando...")
 	set_physics_process(false) # Pausa a física para o personagem não se mover.
 	velocity = Vector2.ZERO
@@ -336,6 +342,7 @@ func saiu_do_gelo():
 
 func receber_buff_aleatorio(tipo_buff):
 	# Cria um novo dicionário para representar o buff
+	buff_sound.play()
 	var novo_buff = {
 		"tipo": tipo_buff,
 		"tempo_restante": buff_duracao # Começa com 5 segundos

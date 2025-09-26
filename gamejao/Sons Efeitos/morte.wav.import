@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyt6oaofr3v60"
+path="res://.godot/imported/morte.wav-41023c1705d252e341ab4fa9b2e7050a.sample"
+
+[deps]
+
+source_file="res://Sons Efeitos/morte.wav"
+dest_files=["res://.godot/imported/morte.wav-41023c1705d252e341ab4fa9b2e7050a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
