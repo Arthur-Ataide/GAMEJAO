@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gamejao"
-run/main_scene="uid://ipwie4elrbuu"
+run/main_scene="uid://b6nx0x4jtj8yh"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
