@@ -170,7 +170,7 @@ position = Vector2(0.99999994, -7)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
 animation = &"pulando"
-frame_progress = 0.0010361341
+frame_progress = 0.6024864
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
