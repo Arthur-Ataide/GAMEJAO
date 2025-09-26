@@ -138,8 +138,7 @@ height = 18.0
 texture_filter = 1
 texture_repeat = 1
 script = ExtResource("1_dovo2")
-jump_force = 500
-wall_jump_force = Vector2(0, 0)
+jump_force = null
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 visible = false
@@ -162,11 +161,5 @@ animation = &"andando"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
-
-[node name="RayLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-10, 0)
-
-[node name="RayRight" type="RayCast2D" parent="."]
-target_position = Vector2(10, 0)
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
