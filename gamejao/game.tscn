@@ -1,11 +1,187 @@
-[gd_scene load_steps=7 format=3 uid="uid://ipwie4elrbuu"]
+[gd_scene load_steps=41 format=3 uid="uid://ipwie4elrbuu"]
 
 [ext_resource type="Script" uid="uid://kq7bn3yheph5" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bhfodnwgyinnw" path="res://scenes/player/player.tscn" id="2_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://ba4nh8yub687o" path="res://scenes/levels/map_1.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dggawkgrxx0wp" path="res://scenes/levels/map_1.tscn" id="4_fc0e3"]
 [ext_resource type="Resource" uid="uid://cfwxggqkfjrnh" path="res://scenes/player/player_1_controls.tres" id="5_ryrav"]
+[ext_resource type="Texture2D" uid="uid://drqkcg7qmbcqu" path="res://scenes/animacao/player2/agarrado/horse2parede4.png" id="6_l1i01"]
 [ext_resource type="Resource" uid="uid://cnjpt67ipxh4a" path="res://scenes/player/player_2_controls.tres" id="6_ryrav"]
 [ext_resource type="Script" uid="uid://c3hk7wafk2cgx" path="res://camera_2d.gd" id="7_eow3j"]
+[ext_resource type="AudioStream" uid="uid://d1r7da0cidceo" path="res://Musicas/DoMal-Song.ogg" id="7_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://dw7twotq0tyx5" path="res://scenes/animacao/player2/agarrado/horse2parede1.png" id="7_r62pu"]
+[ext_resource type="Texture2D" uid="uid://db5msi2770a2u" path="res://scenes/animacao/player2/agarrado/horse2parede2.png" id="8_klri6"]
+[ext_resource type="Texture2D" uid="uid://6othh42cvjg4" path="res://scenes/animacao/player2/agarrado/horse2parede3.png" id="9_eu6ph"]
+[ext_resource type="Texture2D" uid="uid://bb6m16cxdvy7l" path="res://scenes/animacao/player2/frente/horse2correndo1.png" id="10_l1i01"]
+[ext_resource type="Texture2D" uid="uid://b3syjvvvom17v" path="res://scenes/animacao/player2/frente/horse2correndo2.png" id="11_r62pu"]
+[ext_resource type="Texture2D" uid="uid://36qklijr6xkr" path="res://scenes/animacao/player2/frente/horse2correndo3.png" id="12_klri6"]
+[ext_resource type="Texture2D" uid="uid://eixaggsyljmg" path="res://scenes/animacao/player2/frente/horse2correndo4.png" id="13_eu6ph"]
+[ext_resource type="Texture2D" uid="uid://dw37p12ol3ql5" path="res://scenes/animacao/player2/frente/horse2correndo5.png" id="14_edr7y"]
+[ext_resource type="Texture2D" uid="uid://conbs61sxieyv" path="res://scenes/animacao/player2/frente/horse2correndo6.png" id="15_kq12w"]
+[ext_resource type="Texture2D" uid="uid://b8ulvu37l8cec" path="res://scenes/animacao/player2/correr/horse2boost1.png" id="16_t46w6"]
+[ext_resource type="Texture2D" uid="uid://cmgbtxft1a4re" path="res://scenes/animacao/player2/correr/horse2boost2.png" id="17_m28ev"]
+[ext_resource type="Texture2D" uid="uid://ceu6h1fnd468x" path="res://scenes/animacao/player2/correr/horse2boost3.png" id="18_lwlx3"]
+[ext_resource type="Texture2D" uid="uid://dhtgbqif0nkv5" path="res://scenes/animacao/player2/correr/horse2boost4.png" id="19_0de7l"]
+[ext_resource type="Texture2D" uid="uid://m74harcimrgk" path="res://scenes/animacao/player2/correr/horse2boost5.png" id="20_87ddb"]
+[ext_resource type="Texture2D" uid="uid://dlgbj70op3och" path="res://scenes/animacao/player2/correr/horse2boost6.png" id="21_mljfx"]
+[ext_resource type="Texture2D" uid="uid://d1wx30dmkccs4" path="res://scenes/animacao/player2/agarrado/horse2parede5.png" id="22_edr7y"]
+[ext_resource type="Texture2D" uid="uid://crkfpce6xroqj" path="res://scenes/animacao/player2/agarrado/horse2parede6.png" id="23_kq12w"]
+[ext_resource type="Texture2D" uid="uid://dv851vwjfrfik" path="res://scenes/animacao/player2/agarrado/horse2parede7.png" id="24_t46w6"]
+[ext_resource type="Texture2D" uid="uid://yjm57j2xeb3n" path="res://scenes/animacao/player2/pulando/horse2pulo1.png" id="25_qpefm"]
+[ext_resource type="Texture2D" uid="uid://rdnmrdkr5cre" path="res://scenes/animacao/player2/pulando/horse2pulo2.png" id="26_tb2lt"]
+[ext_resource type="Texture2D" uid="uid://yc0f8reqke5m" path="res://scenes/animacao/player2/pulando/horse2pulo3.png" id="27_cfc7e"]
+[ext_resource type="Texture2D" uid="uid://bgqnblm0t3p80" path="res://scenes/animacao/player2/pulando/horse2pulo4.png" id="28_gh0px"]
+[ext_resource type="Texture2D" uid="uid://but1k8j6bnous" path="res://scenes/animacao/player2/pulando/horse2pulo5.png" id="29_v33yl"]
+[ext_resource type="Texture2D" uid="uid://cu4knh2b6e1u2" path="res://scenes/animacao/player2/pulando/horse2pulo6.png" id="30_2tki7"]
+[ext_resource type="Texture2D" uid="uid://vf8ockthwa4y" path="res://scenes/animacao/player2/pulando/horse2pulo7.png" id="31_ib7ph"]
+[ext_resource type="Texture2D" uid="uid://bokdk2ayyv00s" path="res://scenes/animacao/player2/pulando/horse2pulo8.png" id="32_vuohh"]
+[ext_resource type="Texture2D" uid="uid://bq6kkepgcalhw" path="res://scenes/animacao/player2/pulando/horse2pulo9.png" id="33_3gvs5"]
+[ext_resource type="Texture2D" uid="uid://bmsketws14x5f" path="res://scenes/animacao/player2/pulando/horse2pulo10.png" id="34_mc3al"]
+[ext_resource type="Texture2D" uid="uid://c7pcthgnuwkpa" path="res://scenes/animacao/player2/pulando/horse2pulo11.png" id="35_bqa6y"]
+[ext_resource type="Texture2D" uid="uid://cn687b2y1a7qx" path="res://scenes/animacao/player2/pulando/horse2pulo12.png" id="36_du4n2"]
+[ext_resource type="Texture2D" uid="uid://bjm6uwnaigmte" path="res://scenes/animacao/player2/pulando/horse2pulo13.png" id="37_ra4rb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ple6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_l1i01")
+}],
+"loop": true,
+"name": &"agarrado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_r62pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_klri6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eu6ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l1i01")
+}],
+"loop": false,
+"name": &"agarrando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_l1i01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r62pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_klri6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eu6ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_edr7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kq12w")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_t46w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m28ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lwlx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0de7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_87ddb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_mljfx")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_l1i01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_edr7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_kq12w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_t46w6")
+}],
+"loop": false,
+"name": &"despregar",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_l1i01")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_qpefm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_tb2lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cfc7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_gh0px")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_v33yl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2tki7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ib7ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vuohh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_3gvs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_mc3al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_bqa6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_du4n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ra4rb")
+}],
+"loop": true,
+"name": &"pulando",
+"speed": 10.0
+}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_feb5d")
@@ -23,14 +199,18 @@ size = Vector2i(960, 270)
 render_target_update_mode = 4
 
 [node name="Mapa1" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("4_fc0e3")]
-position = Vector2(-2096, -441)
+position = Vector2(-1499, -2572)
 
-[node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
-position = Vector2(-1818, 1044)
+[node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" node_paths=PackedStringArray("ponto_inicial") instance=ExtResource("2_fc0e3")]
+position = Vector2(259, 119)
 controls = ExtResource("5_ryrav")
+ponto_inicial = NodePath("../Mapa1/Spawn1")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Player"]
 texture_repeat = 1
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_bottom_margin = 0.3
 
 [node name="ViewPortContainerPlayer2" type="SubViewportContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -40,15 +220,32 @@ handle_input_locally = false
 size = Vector2i(960, 270)
 render_target_update_mode = 4
 
-[node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
-position = Vector2(-1894, 906)
+[node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" node_paths=PackedStringArray("ponto_inicial") instance=ExtResource("2_fc0e3")]
+position = Vector2(212, -129)
 controls = ExtResource("6_ryrav")
+ponto_inicial = NodePath("../../../ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/Spawn2")
+
+[node name="AnimatedSprite2D" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2" index="12"]
+sprite_frames = SubResource("SpriteFrames_ple6s")
+animation = &"despregar"
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2"]
 texture_repeat = 1
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_bottom_margin = 0.3
 script = ExtResource("7_eow3j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer"]
+stream = ExtResource("7_j5wjh")
+autoplay = true
 
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Player" method="_on_mapa_1_player_touched_door"]
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2" method="_on_mapa_1_player_touched_door"]
 
 [editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor3"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor6"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor4"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor5"]
+[editable path="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2"]

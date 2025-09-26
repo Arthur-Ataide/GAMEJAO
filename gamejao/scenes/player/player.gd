@@ -1,11 +1,20 @@
 extends CharacterBody2D
 
 var gravity = 30
+var voltas_completas = 0
 var input_locked := false
 var stopped_on_door := false
 var quant_portas = 0
+var is_in_hazard_zone := false
+@onready var hazard_detector = $HazardDetector
+
 @export var jump_force = 300
 @export var buff_duracao := 5.0
+@onready var jump_sound: AudioStreamPlayer = $JumpSound
+@onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var buff_sound: AudioStreamPlayer = $BuffSound
+@onready var password_sound: AudioStreamPlayer = $PasswordSound
+@onready var wrong_password_sound: AudioStreamPlayer = $WrongPasswordSound
 
 # Lista para guardar todos os buffs ativos
 var active_buffs: Array = []
@@ -18,9 +27,14 @@ var base_walk_speed: float
 @export var aumento_velocidade = 300
 @export var aumento_pulo = 150
 @export var walk_speed = 300
-@export var run_speed = 600
-@export var ice_speed = 900
-var on_ice := false        
+@export var run_speed = 300
+@export var ice_speed = 600
+
+@export var slow_walk_speed = 0.4
+@export var slow_jump_force = 100
+
+var on_ice := false     
+var on_goo := false   
 
 var puzzle_modal_packed: PackedScene = preload("res://props/puzzle_modal.tscn")
 var puzzleModalP1
@@ -32,7 +46,6 @@ var destino_atual = null
 
 var right_sequence_index := 0;
 var sequence_list := []
-@onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
 var doubleJump = true
 var desencostouDaParede= true
 var encostouNaParede = false
@@ -41,24 +54,45 @@ var encostouNaParede = false
 var is_wall_sliding : bool = false
 var wall_direction : int = 0
 
+@onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
+@onready var double_tap_timer = $TimeDoubleTap
+var is_running := false
+var last_tap_direction := 0
+
+@export var ponto_inicial: Marker2D
+
 func _ready():
 	base_run_speed = run_speed
 	base_jump_force = jump_force
 	base_walk_speed = walk_speed
+	if ponto_inicial:
+		global_position = ponto_inicial.global_position
+		ultimo_ponto_seguro = ponto_inicial.global_position
 
 @onready var ray_right: RayCast2D = $RayRight
 @onready var ray_left: RayCast2D = $RayLeft
 
 func start_wall_slide(left, right):
+	if not is_wall_sliding: animacion.play("agarrando")
+	
 	is_wall_sliding = true
 	velocity.y = min(velocity.y, wall_slide_speed)
 	wall_direction = 1 if left else -1
+	
 
 func stop_wall_slide():
+	if is_wall_sliding: animacion.play("despregar")
 	is_wall_sliding = false
 	wall_direction = 0
+	
+func _on_animacion_animation_finished():
+	# Se a animação que acabou foi a "agarrando" E o personagem ainda está na parede
+	if animacion.animation == "agarrando" and is_wall_sliding:
+		# Começa a animação de "agarrado" em loop
+		animacion.play("agarrado")
 
 func _physics_process(_delta: float):
+	check_hazard_zone()
 	atualizar_buffs(_delta)
 	
 	if is_on_wall_only():
@@ -90,11 +124,13 @@ func _physics_process(_delta: float):
 			encostouNaParede = false
 			desencostouDaParede = false
 			velocity.y = -jump_force
+			jump_sound.play()
 		
 		
 		
 	if !input_locked && (Input.is_action_just_pressed(controls.move_up) && (is_on_floor())):
 		velocity.y = -jump_force
+		jump_sound.play()
 		
 	
 	var horizontalDirection = Input.get_axis(controls.move_left, controls.move_right)
@@ -106,18 +142,48 @@ func _physics_process(_delta: float):
 
 	if !input_locked:
 		var target_speed = walk_speed
+			
+		if Input.is_action_just_pressed(controls.move_right):
+			if last_tap_direction == 1 and not double_tap_timer.is_stopped():
+				is_running = true
+				double_tap_timer.stop()
+			else:
+				last_tap_direction = 1
+				double_tap_timer.start()
+		
+		if Input.is_action_just_pressed(controls.move_left):
+			if last_tap_direction == -1 and not double_tap_timer.is_stopped():
+				is_running = true
+				double_tap_timer.stop()
+			else:
+				last_tap_direction = -1
+				double_tap_timer.start()
+			
+		if is_running:
+			target_speed += run_speed
+		
+		if horizontalDirection == 0:
+			is_running = false
+			
+		if on_goo:
+			target_speed = target_speed*0.4
+			gravity = slow_jump_force
+		else:
+			gravity = 30
+			
+		if on_ice:
+			target_speed += ice_speed
 
 		if on_ice:
 			target_speed = ice_speed
-			
-		if Input.is_action_pressed(controls.move_up):
-			target_speed = run_speed
-			
-		#target_speed = run_speed
-		
+
 		velocity.x = target_speed * horizontalDirection
-		
-		if horizontalDirection != 0:
+			
+		if is_wall_sliding:
+			pass 
+		elif not is_on_floor():
+			animacion.play("pulando")
+		elif horizontalDirection != 0:
 			if abs(velocity.x) > base_walk_speed:
 				animacion.play("correr")
 			else:
@@ -148,30 +214,38 @@ func _physics_process(_delta: float):
 				if sequence_list[right_sequence_index] == "u":
 					print(puzzleModalP1.get_child(right_sequence_index))
 					puzzleModalP1.paintArrow(right_sequence_index, true)
+					password_sound.play()
 					right_sequence_index += 1
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_down):
 				if sequence_list[right_sequence_index] == "d":
 					puzzleModalP1.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_left):
 				if sequence_list[right_sequence_index] == "l":
 					puzzleModalP1.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_right):
 				if sequence_list[right_sequence_index] == "r":
 					puzzleModalP1.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 		else:
 			if Input.is_action_just_pressed(controls.move_up):
@@ -179,29 +253,37 @@ func _physics_process(_delta: float):
 					print(puzzleModalP2.get_child(right_sequence_index))
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_down):
 				if sequence_list[right_sequence_index] == "d":
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_left):
 				if sequence_list[right_sequence_index] == "l":
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_right):
 				if sequence_list[right_sequence_index] == "r":
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 		#print(right_sequence_index)
 		#print(sequence_list)
@@ -209,8 +291,8 @@ func _physics_process(_delta: float):
 		
 		
 	
-func stop_on_door() -> void:
-	sequence_list = ["u","d","l","r","r"]
+func stop_on_door(password) -> void:
+	sequence_list = password
 	if controls.player_index == 0:
 		var puzzlemodal1 = puzzle_modal_packed.instantiate()
 		$"../../../..".add_child(puzzlemodal1)
@@ -218,7 +300,7 @@ func stop_on_door() -> void:
 		puzzleModalP1.position = Vector2(460, 40)
 		
 		if puzzleModalP1.has_method("createArrowList"):
-			puzzleModalP1.createArrowList(["u","d","l","r","r"])
+			puzzleModalP1.createArrowList(sequence_list)
 		#if $"../PuzzleModal".has_method("createArrowList"):
 			#$"../PuzzleModal".createArrowList(["u","d","l","r","r"])
 	else:
@@ -226,7 +308,7 @@ func stop_on_door() -> void:
 		$"../../../..".add_child(puzzlemodal2)
 		puzzleModalP2 = $"../../../..".get_child(-1)
 		if puzzleModalP2.has_method("createArrowList"):
-			puzzleModalP2.createArrowList(["u","d","l","r","r"])
+			puzzleModalP2.createArrowList(sequence_list)
 			puzzleModalP2.position = Vector2(460, 310)
 		#if $"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".has_method("createArrowList"):
 			#$"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".createArrowList(["u","d","l","r","r"])
@@ -251,7 +333,16 @@ func unlock_player() -> void:
 		global_position = destino_atual.global_position
 		ultimo_ponto_seguro = destino_atual.global_position
 		quant_portas+=1
-		if quant_portas % 4 == 0: print(quant_portas/4, " VOLTAS COMPLETAS")
+		if quant_portas % 4 == 0: 
+			voltas_completas = quant_portas/4
+			print(voltas_completas, " VOLTAS COMPLETAS")
+			if (voltas_completas >= 1):
+				print("VITÓRIA! Redirecionando para a tela final...")
+				if (controls.player_index == 0):
+					go_to_the_end_player1()
+				else:
+					go_to_the_end_player2()
+				
 			
 	else:
 		print("Interagindo com porta sem destino (possivelmente um puzzle).")
@@ -264,6 +355,7 @@ func set_destino_e_estado_da_porta(novo_destino, esta_perto):
 
 # morte
 func morrer():
+	death_sound.play()
 	print("O personagem morreu! Aguardando...")
 	set_physics_process(false) # Pausa a física para o personagem não se mover.
 	velocity = Vector2.ZERO
@@ -273,6 +365,14 @@ func morrer():
 	print("Voltando para o último checkpoint.")
 	global_position = ultimo_ponto_seguro
 	set_physics_process(true) # Reativa a física.
+
+func entrou_na_gosma():
+	on_goo = true
+	print("Entrou na Gosma!")
+
+func saiu_da_gosma():
+	on_goo = false
+	print("Saiu da Gosma!")
 
 # Chamada pelo PisoDeGelo quando o jogador entra
 func entrou_no_gelo():
@@ -286,6 +386,7 @@ func saiu_do_gelo():
 
 func receber_buff_aleatorio(tipo_buff):
 	# Cria um novo dicionário para representar o buff
+	buff_sound.play()
 	var novo_buff = {
 		"tipo": tipo_buff,
 		"tempo_restante": buff_duracao # Começa com 5 segundos
@@ -345,7 +446,28 @@ func recalcular_status():
 	
 	print("Status atualizados: Caminhada=%s, Corrida=%s, Pulo=%s" % [walk_speed, run_speed, jump_force])
 
+func check_hazard_zone():
+	# Pega todas as áreas que estão sobrepondo o detector
+	var areas = hazard_detector.get_overlapping_areas()
+	is_in_hazard_zone = false # Começa assumindo que não está em perigo
+	for area in areas:
+		# Se qualquer uma das áreas pertencer ao grupo "hazards"...
+		if area.is_in_group("hazards"):
+			is_in_hazard_zone = true # ...então está em perigo
+			return # Pode parar de verificar
+
 func _on_time_checkpoint_timeout() -> void:
-	if is_on_floor():
+	if is_on_floor() and not is_in_hazard_zone:
 		ultimo_ponto_seguro = global_position
-		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
+		print("Checkpoint salvo em local seguro: ", ultimo_ponto_seguro)
+
+
+func _on_time_double_tap_timeout() -> void:
+	last_tap_direction = 0 
+	
+	
+func go_to_the_end_player1() -> void:
+		get_tree().change_scene_to_file("res://end.tscn")
+		
+func go_to_the_end_player2() -> void:
+		get_tree().change_scene_to_file("res://end(1).tscn")
