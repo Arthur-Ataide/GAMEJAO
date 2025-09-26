@@ -1,14 +1,21 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhfodnwgyinnw"]
+[gd_scene load_steps=37 format=3 uid="uid://bhfodnwgyinnw"]
 
 [ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bevyto6rpfas2" path="res://scenes/animacao/player/agarrado/horse_parede1.png" id="3_4hvnv"]
 [ext_resource type="Texture2D" uid="uid://b5u5c40071auc" path="res://scenes/animacao/player/frente/horse_computador1.png" id="3_ugbui"]
+[ext_resource type="Texture2D" uid="uid://bk5ka10vn4ae5" path="res://scenes/animacao/player/agarrado/horse_parede2.png" id="4_bbmj2"]
 [ext_resource type="Texture2D" uid="uid://cerlmd6gaymn4" path="res://scenes/animacao/player/frente/horse_computador2.png" id="4_fcs02"]
+[ext_resource type="Texture2D" uid="uid://cgdbjqo1oej5b" path="res://scenes/animacao/player/agarrado/horse_parede3.png" id="5_kxw46"]
 [ext_resource type="Texture2D" uid="uid://dk8tm0s7ijchv" path="res://scenes/animacao/player/frente/horse_computador3.png" id="5_myrg7"]
+[ext_resource type="Texture2D" uid="uid://b8nxjtsyynif" path="res://scenes/animacao/player/agarrado/horse_parede4.png" id="6_8qxvo"]
 [ext_resource type="Texture2D" uid="uid://qulbkapfvjee" path="res://scenes/animacao/player/frente/horse_computador4.png" id="6_kvlxm"]
+[ext_resource type="Texture2D" uid="uid://cynpr8qyncffx" path="res://scenes/animacao/player/agarrado/horse_parede5.png" id="7_5q8fn"]
 [ext_resource type="Texture2D" uid="uid://cef4bbe41imjl" path="res://scenes/animacao/player/frente/horse_computador5.png" id="7_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://ccr7880n82t8o" path="res://scenes/animacao/player/frente/horse_computador6.png" id="8_lgqa7"]
+[ext_resource type="Texture2D" uid="uid://cvdnpo5a4ud5b" path="res://scenes/animacao/player/agarrado/horse_parede6.png" id="8_wva7c"]
 [ext_resource type="Texture2D" uid="uid://8fdkchebc0t2" path="res://scenes/animacao/player/correr_frente/horse_computador1.png" id="9_6cv16"]
+[ext_resource type="Texture2D" uid="uid://cfnofvcbw2dhd" path="res://scenes/animacao/player/agarrado/horse_parede7.png" id="9_7obkq"]
 [ext_resource type="Texture2D" uid="uid://bo6r4fnrjv0h5" path="res://scenes/animacao/player/correr_frente/horse_computador2.png" id="10_j4nxn"]
 [ext_resource type="Texture2D" uid="uid://b5gvxcskakobo" path="res://scenes/animacao/player/correr_frente/horse_computador3.png" id="11_28m0y"]
 [ext_resource type="Texture2D" uid="uid://b0cdhfvnwwena" path="res://scenes/animacao/player/correr_frente/horse_computador4.png" id="12_uniwh"]
@@ -30,7 +37,28 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4hvnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bbmj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kxw46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8qxvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5q8fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wva7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7obkq")
+}],
 "loop": true,
 "name": &"agarrado",
 "speed": 5.0
@@ -166,8 +194,8 @@ one_shot = true
 position = Vector2(0.99999994, -7)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
-animation = &"pulando"
-frame_progress = 0.6024864
+animation = &"agarrado"
+frame_progress = 0.8806623
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dggawkgrxx0wp"]
+[gd_scene load_steps=61 format=3 uid="uid://dggawkgrxx0wp"]
 
 [ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
 [ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dh7piqupxdqt6" path="res://Tiles/mapa/rampaDulolVoid.png" id="9_pek4u"]
 [ext_resource type="Texture2D" uid="uid://coc44g1wp2w3c" path="res://Tiles/mapa/rampaDulolVoid (1).png" id="10_xyocl"]
 [ext_resource type="PackedScene" uid="uid://dqn27a0rxksh8" path="res://propriedade_mapa/gosma.tscn" id="12_5igu6"]
+[ext_resource type="PackedScene" uid="uid://crspkbg61ahdu" path="res://propriedade_mapa/fogo.tscn" id="17_pek4u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5igu6"]
 texture = ExtResource("4_vyl6i")
@@ -14731,6 +14732,10 @@ position = Vector2(2405, 2797)
 
 [node name="Gosma3" parent="." instance=ExtResource("12_5igu6")]
 position = Vector2(2525, 2797)
+
+[node name="Fogo" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(4392, 2488)
+rotation = -3.1292405
 
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]

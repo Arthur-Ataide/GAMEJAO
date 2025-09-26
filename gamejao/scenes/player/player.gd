@@ -157,7 +157,9 @@ func _physics_process(_delta: float):
 
 		velocity.x = target_speed * horizontalDirection
 			
-		if horizontalDirection != 0:
+		if not is_on_floor():
+			animacion.play("pulando")
+		elif horizontalDirection != 0:
 			if abs(velocity.x) > base_walk_speed:
 				animacion.play("correr")
 			else:
