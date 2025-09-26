@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dggawkgrxx0wp"]
+[gd_scene load_steps=59 format=3 uid="uid://dggawkgrxx0wp"]
 
 [ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
 [ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
@@ -13779,9 +13779,6 @@ size = Vector2(192, 5.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ni3"]
 size = Vector2(111.99664, 5.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3hs0"]
-size = Vector2(224.00026, 5.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dctfe"]
 size = Vector2(48.00006, 5.5)
 
@@ -14122,11 +14119,6 @@ position = Vector2(3359, -45)
 rotation = -1.5709752
 shape = SubResource("RectangleShape2D_u8ni3")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="zona morte4"]
-position = Vector2(4616.9995, -85.000244)
-rotation = -1.5709752
-shape = SubResource("RectangleShape2D_s3hs0")
-
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="zona morte4"]
 position = Vector2(5223.991, -220.99951)
 rotation = -1.5709752
@@ -14442,6 +14434,62 @@ position = Vector2(4104, 1560)
 
 [node name="Fogo18" parent="." instance=ExtResource("17_pek4u")]
 position = Vector2(4104, 1544)
+
+[node name="Fogo19" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3784, 2711.9998)
+rotation = 3.1343021
+
+[node name="Fogo31" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3784, 2681.0002)
+rotation = 3.1343021
+
+[node name="Fogo32" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3784, 2696)
+rotation = 3.1343021
+
+[node name="Fogo20" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2665.0002)
+rotation = 3.1343021
+
+[node name="Fogo21" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2649.0002)
+rotation = 3.1343021
+
+[node name="Fogo22" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2632.0002)
+rotation = 3.1343021
+
+[node name="Fogo23" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3784, 2617.0002)
+rotation = 3.1343021
+
+[node name="Fogo24" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2599.0002)
+rotation = 3.1343021
+
+[node name="Fogo25" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2585.0002)
+rotation = 3.1343021
+
+[node name="Fogo26" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2569.0002)
+rotation = 3.1343021
+
+[node name="Fogo27" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2553.0002)
+rotation = 3.1343021
+
+[node name="Fogo28" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3783, 2537)
+rotation = 3.1343021
+
+[node name="Fogo29" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3782.9995, 2520.0002)
+rotation = 3.1343021
+
+[node name="Fogo30" parent="." instance=ExtResource("17_pek4u")]
+position = Vector2(3782.9995, 2504)
+rotation = 3.1343021
 
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_exited"]
