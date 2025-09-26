@@ -40,7 +40,13 @@
 [ext_resource type="AudioStream" uid="uid://cbn4liol3i8v7" path="res://Sons Efeitos/selecionarTelaInicial.wav" id="31_tffgl"]
 [ext_resource type="AudioStream" uid="uid://5yr4xl0wu67r" path="res://Sons Efeitos/WrongPasswordSound.wav" id="32_pk8ii"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cv16"]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wva7c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wva7c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -183,12 +189,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cv16"]
-radius = 9.0
-height = 18.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wva7c"]
-
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 texture_repeat = 1
@@ -210,14 +210,6 @@ autostart = true
 [node name="TimeDoubleTap" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.0000002, -7)
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_dovo2")
-animation = &"andando"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
@@ -252,6 +244,12 @@ volume_db = -16.762
 [node name="WrongPasswordSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_pk8ii")
 volume_db = -8.175
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.0000002, -7)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_wva7c")
+animation = &"agarrando"
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
 [connection signal="timeout" from="TimeDoubleTap" to="." method="_on_time_double_tap_timeout"]
