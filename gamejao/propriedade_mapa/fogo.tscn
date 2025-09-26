@@ -37,7 +37,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Fogo" type="Area2D"]
@@ -51,3 +51,5 @@ shape = SubResource("RectangleShape2D_4d6c1")
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_iatvm")
 animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.8031901
