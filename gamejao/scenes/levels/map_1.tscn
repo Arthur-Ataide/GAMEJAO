@@ -14491,6 +14491,18 @@ rotation = 3.1343021
 position = Vector2(3782.9995, 2504)
 rotation = 3.1343021
 
+[node name="GeloTeste" parent="." instance=ExtResource("20_r1bd2")]
+position = Vector2(4047, 1563)
+
+[node name="GeloTeste2" parent="." instance=ExtResource("20_r1bd2")]
+position = Vector2(3311, 1565)
+
+[node name="GeloTeste3" parent="." instance=ExtResource("20_r1bd2")]
+position = Vector2(2685, 1564)
+
+[node name="GeloTeste4" parent="." instance=ExtResource("20_r1bd2")]
+position = Vector2(2575, 1565)
+
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_exited"]
 [connection signal="body_entered" from="zona morte2" to="zona morte2" method="_on_body_entered"]
