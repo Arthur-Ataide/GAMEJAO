@@ -1,24 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhfodnwgyinnw"]
+[gd_scene load_steps=30 format=3 uid="uid://bhfodnwgyinnw"]
 
 [ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
-[ext_resource type="Texture2D" uid="uid://b8u362xgpnaf" path="res://scenes/animacao/player/correr_atras/horse_computador1.png" id="3_8ydkj"]
-[ext_resource type="Texture2D" uid="uid://b6waeqhae3pvv" path="res://scenes/animacao/player/tras/horse_computador1.png" id="3_qek5x"]
 [ext_resource type="Texture2D" uid="uid://b5u5c40071auc" path="res://scenes/animacao/player/frente/horse_computador1.png" id="3_ugbui"]
-[ext_resource type="Texture2D" uid="uid://ctra2kqnbl2e1" path="res://scenes/animacao/player/correr_atras/horse_computador2.png" id="4_3j4b4"]
-[ext_resource type="Texture2D" uid="uid://bwfgbb3357rqd" path="res://scenes/animacao/player/tras/horse_computador2.png" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://cerlmd6gaymn4" path="res://scenes/animacao/player/frente/horse_computador2.png" id="4_fcs02"]
-[ext_resource type="Texture2D" uid="uid://df0qyp6p3y30o" path="res://scenes/animacao/player/tras/horse_computador3.png" id="5_h17s1"]
 [ext_resource type="Texture2D" uid="uid://dk8tm0s7ijchv" path="res://scenes/animacao/player/frente/horse_computador3.png" id="5_myrg7"]
-[ext_resource type="Texture2D" uid="uid://d0y14hrwj6lpw" path="res://scenes/animacao/player/correr_atras/horse_computador3.png" id="5_yj68g"]
-[ext_resource type="Texture2D" uid="uid://cluw7q10v6toi" path="res://scenes/animacao/player/correr_atras/horse_computador4.png" id="6_ioxgp"]
-[ext_resource type="Texture2D" uid="uid://ichv61riqlfk" path="res://scenes/animacao/player/tras/horse_computador4.png" id="6_je7p5"]
 [ext_resource type="Texture2D" uid="uid://qulbkapfvjee" path="res://scenes/animacao/player/frente/horse_computador4.png" id="6_kvlxm"]
-[ext_resource type="Texture2D" uid="uid://f7yd0r7fuk7v" path="res://scenes/animacao/player/correr_atras/horse_computador5.png" id="7_cnsyf"]
-[ext_resource type="Texture2D" uid="uid://db51k67ikdsu1" path="res://scenes/animacao/player/tras/horse_computador5.png" id="7_fm80t"]
 [ext_resource type="Texture2D" uid="uid://cef4bbe41imjl" path="res://scenes/animacao/player/frente/horse_computador5.png" id="7_uf5tr"]
-[ext_resource type="Texture2D" uid="uid://bqpxsh5xnpypv" path="res://scenes/animacao/player/correr_atras/horse_computador6.png" id="8_007i1"]
-[ext_resource type="Texture2D" uid="uid://cs4wiv1ckv4wt" path="res://scenes/animacao/player/tras/horse_computador6.png" id="8_gx1jg"]
 [ext_resource type="Texture2D" uid="uid://ccr7880n82t8o" path="res://scenes/animacao/player/frente/horse_computador6.png" id="8_lgqa7"]
 [ext_resource type="Texture2D" uid="uid://8fdkchebc0t2" path="res://scenes/animacao/player/correr_frente/horse_computador1.png" id="9_6cv16"]
 [ext_resource type="Texture2D" uid="uid://bo6r4fnrjv0h5" path="res://scenes/animacao/player/correr_frente/horse_computador2.png" id="10_j4nxn"]
@@ -27,8 +15,52 @@
 [ext_resource type="Texture2D" uid="uid://cocptfm1xnup6" path="res://scenes/animacao/player/correr_frente/horse_computador5.png" id="13_iqsei"]
 [ext_resource type="Texture2D" uid="uid://83l8myr7mo0f" path="res://scenes/animacao/player/correr_frente/horse_computador6.png" id="14_tffgl"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ugbui"]
+load_path = "res://.godot/imported/horse_pulo1.png-552c53060038bf6a1e7ef7c384204f12.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fcs02"]
+load_path = "res://.godot/imported/horse_pulo2.png-b0f2571ffcec61d05559ac6d7fa1ccc0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_myrg7"]
+load_path = "res://.godot/imported/horse_pulo3.png-48c89879f0636c695e35c8eee72b0aea.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvlxm"]
+load_path = "res://.godot/imported/horse_pulo4.png-85fd62bb542a19523e6ba927be7f8e52.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf5tr"]
+load_path = "res://.godot/imported/horse_pulo5.png-78f926a42c7527fa524b313a651c08f7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lgqa7"]
+load_path = "res://.godot/imported/horse_pulo6.png-eb4e6ebc754d17d0a41563de0ea8a7aa.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ydkj"]
+load_path = "res://.godot/imported/horse_pulo7.png-f420ce06c04fc7c236ef1940a38a6b85.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3j4b4"]
+load_path = "res://.godot/imported/horse_pulo8.png-a11b02e0f9ebb785170688939e196b6b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yj68g"]
+load_path = "res://.godot/imported/horse_pulo9.png-42e51bf53219a58d4c54d2981a3941a5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioxgp"]
+load_path = "res://.godot/imported/horse_pulo10.png-394f2c2158c288be8135f571354ad7f4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cnsyf"]
+load_path = "res://.godot/imported/horse_pulo11.png-815b20a31db6f193a50ea133e7371d05.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_007i1"]
+load_path = "res://.godot/imported/horse_pulo12.png-19eb8c14fa499083be6694494126e4bd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6cv16"]
+load_path = "res://.godot/imported/horse_pulo13.png-c5f88db12b8417563f82cecdce8ca7b8.ctex"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"agarrado",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_ugbui")
@@ -77,29 +109,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_8ydkj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_3j4b4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_yj68g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ioxgp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_cnsyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_007i1")
-}],
-"loop": true,
-"name": &"correr_atras",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("3_ugbui")
 }],
 "loop": true,
@@ -108,25 +117,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qek5x")
+"texture": SubResource("CompressedTexture2D_ugbui")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5gtgg")
+"texture": SubResource("CompressedTexture2D_fcs02")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_h17s1")
+"texture": SubResource("CompressedTexture2D_myrg7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_je7p5")
+"texture": SubResource("CompressedTexture2D_kvlxm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_fm80t")
+"texture": SubResource("CompressedTexture2D_uf5tr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_gx1jg")
+"texture": SubResource("CompressedTexture2D_lgqa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_8ydkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_3j4b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_yj68g")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_ioxgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_cnsyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_007i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_6cv16")
 }],
 "loop": true,
-"name": &"pra atras",
+"name": &"pulando",
 "speed": 10.0
 }]
 
@@ -162,7 +192,8 @@ one_shot = true
 position = Vector2(0.99999994, -7)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
-animation = &"andando"
+animation = &"pulando"
+frame_progress = 0.425062
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
