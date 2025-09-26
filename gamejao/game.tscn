@@ -19,11 +19,11 @@ layout_mode = 2
 
 [node name="ViewportPlayer1" type="SubViewport" parent="VBoxContainer/ViewPortContainerPlayer1"]
 handle_input_locally = false
-size = Vector2i(480, 135)
+size = Vector2i(960, 270)
 render_target_update_mode = 4
 
 [node name="Mapa1" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("4_fc0e3")]
-position = Vector2(-1553, -392)
+position = Vector2(-1568, -2597)
 
 [node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
 position = Vector2(197, 101)
@@ -37,7 +37,7 @@ layout_mode = 2
 
 [node name="ViewportPlayer1" type="SubViewport" parent="VBoxContainer/ViewPortContainerPlayer2"]
 handle_input_locally = false
-size = Vector2i(480, 135)
+size = Vector2i(960, 270)
 render_target_update_mode = 4
 
 [node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" instance=ExtResource("2_fc0e3")]

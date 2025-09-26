@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bhfodnwgyinnw"]
 
-[ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://b8u362xgpnaf" path="res://scenes/animacao_player/correr_atras/horse_computador1.png" id="3_8ydkj"]
 [ext_resource type="Texture2D" uid="uid://b6waeqhae3pvv" path="res://scenes/animacao_player/tras/horse_computador1.png" id="3_qek5x"]
