@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dggawkgrxx0wp"]
+[gd_scene load_steps=65 format=3 uid="uid://dggawkgrxx0wp"]
 
 [ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
 [ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
@@ -13839,16 +13839,13 @@ size = Vector2(36.251953, 6.8809204)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_st8ga"]
 size = Vector2(100.56781, 6.039673)
 
+[sub_resource type="QuadMesh" id="QuadMesh_ma5wf"]
+
 [node name="Mapa1" type="Node2D"]
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(573, -356)
 script = ExtResource("1_v7fe1")
-
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(779, 2460)
-scale = Vector2(0.70650804, 0.70650804)
-texture = ExtResource("2_bwlm8")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(4280, 2051)
@@ -13872,6 +13869,11 @@ modulate = Color(0.48178053, 0.90428835, 0.5933597, 1)
 position = Vector2(3271.6191, 2676.3096)
 scale = Vector2(0.22836679, 0.22836679)
 texture = ExtResource("2_5igu6")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(616, 2467)
+scale = Vector2(0.706508, 0.706508)
+texture = ExtResource("2_bwlm8")
 
 [node name="Sprite2D6" type="Sprite2D" parent="."]
 modulate = Color(0.48178053, 0.90428835, 0.5933597, 1)
@@ -14737,14 +14739,6 @@ position = Vector2(571, 250.99997)
 rotation = 0.46782947
 shape = SubResource("RectangleShape2D_st8ga")
 
-[node name="UnlockableDoor2" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
-position = Vector2(102, 913)
-scale = Vector2(2.298147, 2.298147)
-destino = NodePath("Marker2D")
-
-[node name="Marker2D" type="Marker2D" parent="UnlockableDoor2"]
-position = Vector2(-74.84291, 2.610799)
-
 [node name="UnlockableDoor3" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
 position = Vector2(3853, 2754)
 scale = Vector2(5.7934923, 6.368644)
@@ -14755,6 +14749,41 @@ visible = false
 
 [node name="Marker2D" type="Marker2D" parent="UnlockableDoor3"]
 position = Vector2(12.772952, 4.39654)
+
+[node name="UnlockableDoor6" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(1518, 2754)
+scale = Vector2(5.7934923, 6.368644)
+destino = NodePath("Marker2D")
+
+[node name="UnlockablerDoorSprite" parent="UnlockableDoor6" index="0"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor6"]
+position = Vector2(12.772952, 4.39654)
+
+[node name="UnlockableDoor4" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(3852.0005, 1674)
+rotation = -3.1415927
+scale = Vector2(5.7934923, 6.368644)
+destino = NodePath("Marker2D")
+
+[node name="UnlockablerDoorSprite" parent="UnlockableDoor4" index="0"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor4"]
+position = Vector2(13.290859, -3.7684627)
+
+[node name="UnlockableDoor5" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(1528, 1678)
+rotation = -3.1415927
+scale = Vector2(5.7934923, 6.368644)
+destino = NodePath("Marker2D")
+
+[node name="UnlockablerDoorSprite" parent="UnlockableDoor5" index="0"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor5"]
+position = Vector2(57.47828, 47.733868)
 
 [node name="Spawn1" type="Marker2D" parent="."]
 position = Vector2(1570, 2779)
@@ -14774,6 +14803,35 @@ position = Vector2(2525, 2797)
 [node name="Fogo" parent="." instance=ExtResource("17_pek4u")]
 position = Vector2(4392, 2488)
 rotation = -3.1292405
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2688, 2081)
+scale = Vector2(2208, 544.0002)
+mesh = SubResource("QuadMesh_ma5wf")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2797, 1035.4999)
+scale = Vector2(4118, 553.00006)
+mesh = SubResource("QuadMesh_ma5wf")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2875, 3108)
+scale = Vector2(4426, 553.00006)
+mesh = SubResource("QuadMesh_ma5wf")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4981, 2098)
+scale = Vector2(1097.0002, 2520)
+mesh = SubResource("QuadMesh_ma5wf")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(396, 2103)
+scale = Vector2(1097.0002, 2520)
+mesh = SubResource("QuadMesh_ma5wf")
 
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]
@@ -14792,3 +14850,6 @@ rotation = -3.1292405
 [connection signal="body_exited" from="portalVerde/zona_portal" to="portalVerde/zona_portal" method="_on_body_exited"]
 
 [editable path="UnlockableDoor3"]
+[editable path="UnlockableDoor6"]
+[editable path="UnlockableDoor4"]
+[editable path="UnlockableDoor5"]

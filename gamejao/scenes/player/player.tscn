@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bhfodnwgyinnw"]
+[gd_scene load_steps=42 format=3 uid="uid://bhfodnwgyinnw"]
 
 [ext_resource type="Script" uid="uid://d4fvvl8w4oom3" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://d03ld21pox6dt" path="res://Tiles/Transparent/tile_0261.png" id="1_gmlin"]
@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://fx4njysv3bhg" path="res://scenes/animacao/player/pulando/horse_pulo13.png" id="27_wva7c"]
 [ext_resource type="AudioStream" uid="uid://cyt6oaofr3v60" path="res://Sons Efeitos/morte.wav" id="28_28m0y"]
 [ext_resource type="AudioStream" uid="uid://cx6pww7cyuo0r" path="res://Sons Efeitos/buff.wav" id="29_uniwh"]
+[ext_resource type="AudioStream" uid="uid://cbn4liol3i8v7" path="res://Sons Efeitos/selecionarTelaInicial.wav" id="31_tffgl"]
+[ext_resource type="AudioStream" uid="uid://5yr4xl0wu67r" path="res://Sons Efeitos/WrongPasswordSound.wav" id="32_pk8ii"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
 animations = [{
@@ -235,6 +237,14 @@ volume_db = -14.829
 [node name="BuffSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_uniwh")
 volume_db = -14.829
+
+[node name="PasswordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_tffgl")
+volume_db = -16.762
+
+[node name="WrongPasswordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_pk8ii")
+volume_db = -8.175
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
 [connection signal="timeout" from="TimeDoubleTap" to="." method="_on_time_double_tap_timeout"]

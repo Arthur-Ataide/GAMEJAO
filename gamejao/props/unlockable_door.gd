@@ -2,7 +2,17 @@ extends StaticBody2D
 
 @export var destino: Marker2D
 signal body_entered_door(body)
+var senhaPorta = []
 
+func _ready():
+	randomize()
+	
+	var letras = ["u", "d", "r", "l"]
+	
+	for i in range(5):
+		var letra = letras[randi() % letras.size()]
+		senhaPorta.append(letra)
+		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body_entered_door.emit(body) # Replace with function body.
 	print(body)
@@ -12,7 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		# 2. Que o jogador agora está perto de uma porta.
 		body.set_destino_e_estado_da_porta(destino, true)
 	if body.has_method("stop_on_door"):
-		body.stop_on_door()
+		body.stop_on_door(senhaPorta)
 	
 
 
