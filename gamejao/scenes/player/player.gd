@@ -21,9 +21,14 @@ var base_walk_speed: float
 @export var aumento_velocidade = 300
 @export var aumento_pulo = 150
 @export var walk_speed = 300
-@export var run_speed = 600
-@export var ice_speed = 900
-var on_ice := false        
+@export var run_speed = 300
+@export var ice_speed = 600
+
+@export var slow_walk_speed = 0.4
+@export var slow_jump_force = 100
+
+var on_ice := false     
+var on_goo := false   
 
 var puzzle_modal_packed: PackedScene = preload("res://props/puzzle_modal.tscn")
 var puzzleModalP1
@@ -35,7 +40,6 @@ var destino_atual = null
 
 var right_sequence_index := 0;
 var sequence_list := []
-@onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
 var doubleJump = true
 var desencostouDaParede= true
 var encostouNaParede = false
@@ -44,10 +48,20 @@ var encostouNaParede = false
 var is_wall_sliding : bool = false
 var wall_direction : int = 0
 
+@onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
+@onready var double_tap_timer = $TimeDoubleTap
+var is_running := false
+var last_tap_direction := 0
+
+@export var ponto_inicial: Marker2D
+
 func _ready():
 	base_run_speed = run_speed
 	base_jump_force = jump_force
 	base_walk_speed = walk_speed
+	if ponto_inicial:
+		global_position = ponto_inicial.global_position
+		ultimo_ponto_seguro = ponto_inicial.global_position
 
 @onready var ray_right: RayCast2D = $RayRight
 @onready var ray_left: RayCast2D = $RayLeft
@@ -111,17 +125,43 @@ func _physics_process(_delta: float):
 
 	if !input_locked:
 		var target_speed = walk_speed
+			
+		if Input.is_action_just_pressed(controls.move_right):
+			if last_tap_direction == 1 and not double_tap_timer.is_stopped():
+				is_running = true
+				double_tap_timer.stop()
+			else:
+				last_tap_direction = 1
+				double_tap_timer.start()
+		
+		if Input.is_action_just_pressed(controls.move_left):
+			if last_tap_direction == -1 and not double_tap_timer.is_stopped():
+				is_running = true
+				double_tap_timer.stop()
+			else:
+				last_tap_direction = -1
+				double_tap_timer.start()
+			
+		if is_running:
+			target_speed += run_speed
+		
+		if horizontalDirection == 0:
+			is_running = false
+			
+		if on_goo:
+			target_speed = target_speed*0.4
+			gravity = slow_jump_force
+		else:
+			gravity = 30
+			
+		if on_ice:
+			target_speed += ice_speed
 
 		if on_ice:
 			target_speed = ice_speed
-			
-		if Input.is_action_pressed(controls.move_up):
-			target_speed = run_speed
-			
-		#target_speed = run_speed
-		
+
 		velocity.x = target_speed * horizontalDirection
-		
+			
 		if horizontalDirection != 0:
 			if abs(velocity.x) > base_walk_speed:
 				animacion.play("correr")
@@ -280,6 +320,14 @@ func morrer():
 	global_position = ultimo_ponto_seguro
 	set_physics_process(true) # Reativa a física.
 
+func entrou_na_gosma():
+	on_goo = true
+	print("Entrou na Gosma!")
+
+func saiu_da_gosma():
+	on_goo = false
+	print("Saiu da Gosma!")
+
 # Chamada pelo PisoDeGelo quando o jogador entra
 func entrou_no_gelo():
 	on_ice = true
@@ -356,3 +404,7 @@ func _on_time_checkpoint_timeout() -> void:
 	if is_on_floor():
 		ultimo_ponto_seguro = global_position
 		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
+
+
+func _on_time_double_tap_timeout() -> void:
+	last_tap_direction = 0 

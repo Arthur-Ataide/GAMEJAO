@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6flhe8vnt2mq"]
+[gd_scene load_steps=3 format=3 uid="uid://b6flhe8vnt2mq"]
 
-[ext_resource type="Script" uid="uid://b14ta3glgyguo" path="res://scenes/levels/gelo_teste.gd" id="1_pjqi1"]
-[ext_resource type="Texture2D" uid="uid://wgitnancowcj" path="res://icon.svg" id="2_85pow"]
+[ext_resource type="Script" path="res://scenes/levels/gelo_teste.gd" id="1_pjqi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjqi1"]
 size = Vector2(239.75, 4.25)
@@ -15,11 +14,6 @@ script = ExtResource("1_pjqi1")
 position = Vector2(-240.25, 67.75)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_pjqi1")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-239.00006, 66.74998)
-scale = Vector2(3.78125, 0.07421859)
-texture = ExtResource("2_85pow")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

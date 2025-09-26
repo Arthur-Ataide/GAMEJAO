@@ -25,9 +25,10 @@ render_target_update_mode = 4
 [node name="Mapa1" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("4_fc0e3")]
 position = Vector2(-1499, -2572)
 
-[node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
+[node name="Player" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1" node_paths=PackedStringArray("ponto_inicial") instance=ExtResource("2_fc0e3")]
 position = Vector2(259, 119)
 controls = ExtResource("5_ryrav")
+ponto_inicial = NodePath("../Mapa1/Spawn1")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Player"]
 texture_repeat = 1
@@ -40,9 +41,10 @@ handle_input_locally = false
 size = Vector2i(960, 270)
 render_target_update_mode = 4
 
-[node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" instance=ExtResource("2_fc0e3")]
+[node name="Player2" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1" node_paths=PackedStringArray("ponto_inicial") instance=ExtResource("2_fc0e3")]
 position = Vector2(212, -129)
 controls = ExtResource("6_ryrav")
+ponto_inicial = NodePath("../../../ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/Spawn2")
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2"]
 texture_repeat = 1

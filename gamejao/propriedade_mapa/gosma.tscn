@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqn27a0rxksh8"]
+
+[ext_resource type="Script" uid="uid://beb3yl77vc8nk" path="res://gosma.gd" id="1_kf8tc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf8tc"]
+
+[node name="Gosma" type="Area2D"]
+script = ExtResource("1_kf8tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 0.3)
+shape = SubResource("RectangleShape2D_kf8tc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
