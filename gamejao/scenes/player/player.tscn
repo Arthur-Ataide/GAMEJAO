@@ -27,9 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://cocptfm1xnup6" path="res://scenes/animacao/player/correr_frente/horse_computador5.png" id="13_iqsei"]
 [ext_resource type="Texture2D" uid="uid://83l8myr7mo0f" path="res://scenes/animacao/player/correr_frente/horse_computador6.png" id="14_tffgl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
-size = Vector2(308, 298)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
 animations = [{
 "frames": [{
@@ -133,10 +130,16 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cv16"]
+radius = 9.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 texture_repeat = 1
 script = ExtResource("1_dovo2")
+jump_force = 500
+wall_jump_force = Vector2(0, 0)
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 visible = false
@@ -144,11 +147,6 @@ texture_filter = 1
 position = Vector2(-3, -17)
 scale = Vector2(0.62500006, 0.49999994)
 texture = ExtResource("1_gmlin")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.7683716e-07, 1.000001)
-scale = Vector2(0.1, 0.1)
-shape = SubResource("RectangleShape2D_8afob")
 
 [node name="TimeCheckpoint" type="Timer" parent="."]
 wait_time = 3.5
@@ -160,10 +158,19 @@ wait_time = 5.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.99999994, -7)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
 animation = &"andando"
-frame_progress = 0.5105228
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6cv16")
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-10, 0)
+
+[node name="RayRight" type="RayCast2D" parent="."]
+target_position = Vector2(10, 0)
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
 [connection signal="timeout" from="TimeBuff" to="." method="_on_time_buff_timeout"]

@@ -33,27 +33,67 @@ var destino_atual = null
 var right_sequence_index := 0;
 var sequence_list := []
 @onready var animacion := $AnimatedSprite2D as AnimatedSprite2D
+var doubleJump = true
+var desencostouDaParede= true
+var encostouNaParede = false
+@export var wall_slide_speed: float = 50.0
+@export var wall_jump_force: Vector2 = Vector2(250, -300)
+var is_wall_sliding : bool = false
+var wall_direction : int = 0
 
 func _ready():
 	base_run_speed = run_speed
 	base_jump_force = jump_force
 	base_walk_speed = walk_speed
 
+@onready var ray_right: RayCast2D = $RayRight
+@onready var ray_left: RayCast2D = $RayLeft
+
+func start_wall_slide(left, right):
+	is_wall_sliding = true
+	velocity.y = min(velocity.y, wall_slide_speed)
+	wall_direction = 1 if left else -1
+
+func stop_wall_slide():
+	is_wall_sliding = false
+	wall_direction = 0
+
 func _physics_process(_delta: float):
 	atualizar_buffs(_delta)
+	
+	if is_on_wall_only():
+		encostouNaParede = true
+	var is_touching_left_wall = ray_left.is_colliding()
+	var is_touching_right_wall = ray_right.is_colliding()
+	
+	if (is_touching_left_wall or is_touching_right_wall) and not is_on_floor() and velocity.y > 0:
+		start_wall_slide(is_touching_left_wall, is_touching_right_wall)
+	elif is_wall_sliding and not (is_touching_left_wall or is_touching_right_wall):
+		stop_wall_slide()
+		
 	input_locked = stopped_on_door
+	
+	if is_on_floor():
+		doubleJump= true
+		
+	if desencostouDaParede && encostouNaParede:
+		doubleJump = true
 
 	if !is_on_floor():
-		if is_on_wall():
-			velocity.y += gravity * 0.5
-		else:
-			velocity.y += gravity
+		velocity.y += gravity
 		if velocity.y >= 500:
 			velocity.y = 600
 		if Input.is_action_pressed(controls.move_down) && !input_locked:
 			velocity.y += 300
+		if Input.is_action_just_pressed(controls.move_up) && doubleJump:
+			doubleJump = false
+			encostouNaParede = false
+			desencostouDaParede = false
+			velocity.y = -jump_force
 		
-	if !input_locked && (Input.is_action_just_pressed(controls.move_up) && (is_on_floor() || is_on_wall())):
+		
+		
+	if !input_locked && (Input.is_action_just_pressed(controls.move_up) && (is_on_floor())):
 		velocity.y = -jump_force
 		
 	
@@ -88,6 +128,14 @@ func _physics_process(_delta: float):
 	else:
 		animacion.play("parado")
 		velocity.x = 0
+		
+	if is_wall_sliding and Input.is_action_just_pressed(controls.move_up):
+		if (desencostouDaParede):
+			velocity = Vector2(wall_jump_force.x * wall_direction, wall_jump_force.y)
+			desencostouDaParede = false
+			stop_wall_slide()
+	if !is_on_wall() && encostouNaParede:
+		desencostouDaParede = true
 		
 	move_and_slide()
 	
@@ -167,7 +215,7 @@ func stop_on_door() -> void:
 		var puzzlemodal1 = puzzle_modal_packed.instantiate()
 		$"../../../..".add_child(puzzlemodal1)
 		puzzleModalP1 = $"../../../..".get_child(-1)
-		puzzleModalP1.position = Vector2(200, 20)
+		puzzleModalP1.position = Vector2(460, 40)
 		
 		if puzzleModalP1.has_method("createArrowList"):
 			puzzleModalP1.createArrowList(["u","d","l","r","r"])
@@ -179,7 +227,7 @@ func stop_on_door() -> void:
 		puzzleModalP2 = $"../../../..".get_child(-1)
 		if puzzleModalP2.has_method("createArrowList"):
 			puzzleModalP2.createArrowList(["u","d","l","r","r"])
-			puzzleModalP2.position = Vector2(200, 155)
+			puzzleModalP2.position = Vector2(460, 310)
 		#if $"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".has_method("createArrowList"):
 			#$"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".createArrowList(["u","d","l","r","r"])
 

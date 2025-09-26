@@ -93,7 +93,7 @@ size = Vector2(100.56781, 6.039673)
 [node name="Mapa1" type="Node2D"]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(573, -356)
+position = Vector2(-1357, -430)
 script = ExtResource("1_v7fe1")
 
 [node name="BuffTeste" parent="." instance=ExtResource("9_jypjn")]
@@ -261,31 +261,6 @@ script = ExtResource("3_wy4vl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona morte2"]
 position = Vector2(3160, 181.5)
 shape = SubResource("RectangleShape2D_ikjlj")
-
-[node name="portalAmarelo" type="StaticBody2D" parent="."]
-position = Vector2(3550, 479)
-scale = Vector2(2, 2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAmarelo"]
-position = Vector2(4, 0.5)
-shape = SubResource("RectangleShape2D_cn17j")
-
-[node name="Sprite2D" type="Sprite2D" parent="portalAmarelo"]
-position = Vector2(4.2499986, 1.0000014)
-scale = Vector2(1.90625, 1.8750002)
-texture = ExtResource("4_ixlcy")
-
-[node name="zona_portal" type="Area2D" parent="portalAmarelo" node_paths=PackedStringArray("destino")]
-position = Vector2(-3, 1)
-script = ExtResource("5_cn17j")
-destino = NodePath("../Marker2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="portalAmarelo/zona_portal"]
-position = Vector2(-9.5, 1)
-shape = SubResource("RectangleShape2D_yxgn6")
-
-[node name="Marker2D" type="Marker2D" parent="portalAmarelo"]
-position = Vector2(25, 2)
 
 [node name="portalAzul" type="StaticBody2D" parent="."]
 position = Vector2(3548, -382)
@@ -823,13 +798,27 @@ destino = NodePath("Marker2D")
 [node name="Marker2D" type="Marker2D" parent="UnlockableDoor2"]
 position = Vector2(-74.84291, 2.610799)
 
+[node name="UnlockableDoor3" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(3557, 481)
+scale = Vector2(3.950122, 3.950122)
+destino = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor3"]
+position = Vector2(23.543575, 0)
+
+[node name="UnlockableDoor4" parent="." node_paths=PackedStringArray("destino") instance=ExtResource("1_h2hyn")]
+position = Vector2(-88, 1453)
+scale = Vector2(17.554585, 17.554585)
+destino = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="UnlockableDoor4"]
+position = Vector2(113.64552, -59.41468)
+
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_exited"]
 [connection signal="body_entered" from="zona morte2" to="zona morte2" method="_on_body_entered"]
-[connection signal="body_entered" from="portalAmarelo/zona_portal" to="portalAmarelo/zona_portal" method="_on_body_entered"]
-[connection signal="body_exited" from="portalAmarelo/zona_portal" to="portalAmarelo/zona_portal" method="_on_body_exited"]
 [connection signal="body_entered" from="portalAzul/zona_portal" to="portalAzul/zona_portal" method="_on_body_entered"]
 [connection signal="body_exited" from="portalAzul/zona_portal" to="portalAzul/zona_portal" method="_on_body_exited"]
 [connection signal="body_entered" from="portalLaranja/zona_portal" to="portalLaranja/zona_portal" method="_on_body_entered"]

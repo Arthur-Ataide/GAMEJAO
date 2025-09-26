@@ -7,6 +7,7 @@
 script = ExtResource("1_1f78q")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(16, 16)
 render_target_update_mode = 4
