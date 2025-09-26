@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dggawkgrxx0wp"]
+[gd_scene load_steps=49 format=3 uid="uid://dggawkgrxx0wp"]
 
 [ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
 [ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://blsja5yahfw4b" path="res://Tiles/mapa/anguloHardware.png" id="5_wd24e"]
 [ext_resource type="Texture2D" uid="uid://ckbyptn32acqm" path="res://Tiles/mapa/firewallAngulos.png" id="6_wd24e"]
 [ext_resource type="Texture2D" uid="uid://c3fnriyrh5rpi" path="res://scenes/Design sem nome.png" id="6_yxgn6"]
+[ext_resource type="PackedScene" uid="uid://dqn27a0rxksh8" path="res://propriedade_mapa/gosma.tscn" id="12_5igu6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5igu6"]
 texture = ExtResource("4_vyl6i")
@@ -14547,6 +14548,15 @@ position = Vector2(1570, 2779)
 
 [node name="Spawn2" type="Marker2D" parent="."]
 position = Vector2(1610, 2781)
+
+[node name="Gosma" parent="." instance=ExtResource("12_5igu6")]
+position = Vector2(2285, 2797)
+
+[node name="Gosma2" parent="." instance=ExtResource("12_5igu6")]
+position = Vector2(2405, 2797)
+
+[node name="Gosma3" parent="." instance=ExtResource("12_5igu6")]
+position = Vector2(2525, 2797)
 
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]

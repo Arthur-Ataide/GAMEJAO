@@ -20,8 +20,12 @@ var base_walk_speed: float
 @export var walk_speed = 300
 @export var run_speed = 300
 @export var ice_speed = 600
-@export var gosma_speed = 300
-var on_ice := false        
+
+@export var slow_walk_speed = 0.4
+@export var slow_jump_force = 100
+
+var on_ice := false     
+var on_goo := false   
 
 var puzzle_modal_packed: PackedScene = preload("res://props/puzzle_modal.tscn")
 var puzzleModalP1
@@ -138,6 +142,12 @@ func _physics_process(_delta: float):
 		
 		if horizontalDirection == 0:
 			is_running = false
+			
+		if on_goo:
+			target_speed = target_speed*0.4
+			gravity = slow_jump_force
+		else:
+			gravity = 30
 			
 		if on_ice:
 			target_speed += ice_speed
@@ -303,6 +313,14 @@ func morrer():
 	print("Voltando para o último checkpoint.")
 	global_position = ultimo_ponto_seguro
 	set_physics_process(true) # Reativa a física.
+
+func entrou_na_gosma():
+	on_goo = true
+	print("Entrou na Gosma!")
+
+func saiu_da_gosma():
+	on_goo = false
+	print("Saiu da Gosma!")
 
 # Chamada pelo PisoDeGelo quando o jogador entra
 func entrou_no_gelo():
