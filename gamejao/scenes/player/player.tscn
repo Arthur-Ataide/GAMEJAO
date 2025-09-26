@@ -14,19 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://b0cdhfvnwwena" path="res://scenes/animacao/player/correr_frente/horse_computador4.png" id="12_uniwh"]
 [ext_resource type="Texture2D" uid="uid://cocptfm1xnup6" path="res://scenes/animacao/player/correr_frente/horse_computador5.png" id="13_iqsei"]
 [ext_resource type="Texture2D" uid="uid://83l8myr7mo0f" path="res://scenes/animacao/player/correr_frente/horse_computador6.png" id="14_tffgl"]
-[ext_resource type="Texture2D" uid="uid://dfd82eg6wampl" path="res://scenes/animacao/player/pulando/horse_pulo1.png" id="15_j4nxn"]
-[ext_resource type="Texture2D" uid="uid://c8hdi3nlh4ciw" path="res://scenes/animacao/player/pulando/horse_pulo2.png" id="16_28m0y"]
-[ext_resource type="Texture2D" uid="uid://dgtl60hxljo5w" path="res://scenes/animacao/player/pulando/horse_pulo3.png" id="17_uniwh"]
-[ext_resource type="Texture2D" uid="uid://ce8pq1erf74in" path="res://scenes/animacao/player/pulando/horse_pulo4.png" id="18_iqsei"]
-[ext_resource type="Texture2D" uid="uid://cq45r4hyy3tqx" path="res://scenes/animacao/player/pulando/horse_pulo5.png" id="19_tffgl"]
-[ext_resource type="Texture2D" uid="uid://d33qiey1a8cj" path="res://scenes/animacao/player/pulando/horse_pulo6.png" id="20_pk8ii"]
-[ext_resource type="Texture2D" uid="uid://duni3x4ug15uu" path="res://scenes/animacao/player/pulando/horse_pulo7.png" id="21_5mf0n"]
-[ext_resource type="Texture2D" uid="uid://t8bpc5g7cwbq" path="res://scenes/animacao/player/pulando/horse_pulo8.png" id="22_4hvnv"]
-[ext_resource type="Texture2D" uid="uid://c474htwfas6vy" path="res://scenes/animacao/player/pulando/horse_pulo9.png" id="23_bbmj2"]
-[ext_resource type="Texture2D" uid="uid://dwft0aswycxv4" path="res://scenes/animacao/player/pulando/horse_pulo10.png" id="24_kxw46"]
-[ext_resource type="Texture2D" uid="uid://0ji7sinv24b2" path="res://scenes/animacao/player/pulando/horse_pulo11.png" id="25_8qxvo"]
-[ext_resource type="Texture2D" uid="uid://bb5fd3w8uvgyv" path="res://scenes/animacao/player/pulando/horse_pulo12.png" id="26_5q8fn"]
-[ext_resource type="Texture2D" uid="uid://dxqmrtqy8tq8v" path="res://scenes/animacao/player/pulando/horse_pulo13.png" id="27_wva7c"]
+[ext_resource type="Texture2D" uid="uid://b6uqiea5o81xc" path="res://scenes/animacao/player/pulando/horse_pulo1.png" id="15_j4nxn"]
+[ext_resource type="Texture2D" uid="uid://bmlvd2lue2br0" path="res://scenes/animacao/player/pulando/horse_pulo2.png" id="16_28m0y"]
+[ext_resource type="Texture2D" uid="uid://cnhewbn75k7hy" path="res://scenes/animacao/player/pulando/horse_pulo3.png" id="17_uniwh"]
+[ext_resource type="Texture2D" uid="uid://b16sasju6edgt" path="res://scenes/animacao/player/pulando/horse_pulo4.png" id="18_iqsei"]
+[ext_resource type="Texture2D" uid="uid://b8vao4rebryle" path="res://scenes/animacao/player/pulando/horse_pulo5.png" id="19_tffgl"]
+[ext_resource type="Texture2D" uid="uid://bw8ei5kvqhfku" path="res://scenes/animacao/player/pulando/horse_pulo6.png" id="20_pk8ii"]
+[ext_resource type="Texture2D" uid="uid://chvxan4omvd0t" path="res://scenes/animacao/player/pulando/horse_pulo7.png" id="21_5mf0n"]
+[ext_resource type="Texture2D" uid="uid://crfef2gc2l6fa" path="res://scenes/animacao/player/pulando/horse_pulo8.png" id="22_4hvnv"]
+[ext_resource type="Texture2D" uid="uid://b8d8ltbcu0wvt" path="res://scenes/animacao/player/pulando/horse_pulo9.png" id="23_bbmj2"]
+[ext_resource type="Texture2D" uid="uid://cymskocih4qv6" path="res://scenes/animacao/player/pulando/horse_pulo10.png" id="24_kxw46"]
+[ext_resource type="Texture2D" uid="uid://c8ei5tjxrpjau" path="res://scenes/animacao/player/pulando/horse_pulo11.png" id="25_8qxvo"]
+[ext_resource type="Texture2D" uid="uid://cydirl7djgrp4" path="res://scenes/animacao/player/pulando/horse_pulo12.png" id="26_5q8fn"]
+[ext_resource type="Texture2D" uid="uid://fx4njysv3bhg" path="res://scenes/animacao/player/pulando/horse_pulo13.png" id="27_wva7c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
 animations = [{
@@ -167,7 +167,7 @@ position = Vector2(0.99999994, -7)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dovo2")
 animation = &"pulando"
-frame_progress = 0.0010361341
+frame_progress = 0.6024864
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6cv16")
