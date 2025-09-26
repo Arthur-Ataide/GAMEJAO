@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kq7bn3yheph5" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bhfodnwgyinnw" path="res://scenes/player/player.tscn" id="2_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://dggawkgrxx0wp" path="res://scenes/levels/map_1.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://ba4nh8yub687o" path="res://scenes/levels/map_1.tscn" id="4_fc0e3"]
 [ext_resource type="Resource" uid="uid://cfwxggqkfjrnh" path="res://scenes/player/player_1_controls.tres" id="5_ryrav"]
 [ext_resource type="Resource" uid="uid://cnjpt67ipxh4a" path="res://scenes/player/player_2_controls.tres" id="6_ryrav"]
 [ext_resource type="Script" uid="uid://c3hk7wafk2cgx" path="res://camera_2d.gd" id="7_eow3j"]
@@ -52,3 +52,4 @@ script = ExtResource("7_eow3j")
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2" method="_on_mapa_1_player_touched_door"]
 
 [editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1"]
+[editable path="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1/UnlockableDoor3"]
