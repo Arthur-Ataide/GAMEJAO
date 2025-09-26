@@ -9,6 +9,8 @@ var quant_portas = 0
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 @onready var buff_sound: AudioStreamPlayer = $BuffSound
+@onready var password_sound: AudioStreamPlayer = $PasswordSound
+@onready var wrong_password_sound: AudioStreamPlayer = $WrongPasswordSound
 
 # Lista para guardar todos os buffs ativos
 var active_buffs: Array = []
@@ -193,30 +195,38 @@ func _physics_process(_delta: float):
 				if sequence_list[right_sequence_index] == "u":
 					print(puzzleModalP1.get_child(right_sequence_index))
 					puzzleModalP1.paintArrow(right_sequence_index, true)
+					password_sound.play()
 					right_sequence_index += 1
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_down):
 				if sequence_list[right_sequence_index] == "d":
 					puzzleModalP1.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_left):
 				if sequence_list[right_sequence_index] == "l":
 					puzzleModalP1.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_right):
 				if sequence_list[right_sequence_index] == "r":
 					puzzleModalP1.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP1.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 		else:
 			if Input.is_action_just_pressed(controls.move_up):
@@ -224,29 +234,37 @@ func _physics_process(_delta: float):
 					print(puzzleModalP2.get_child(right_sequence_index))
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_down):
 				if sequence_list[right_sequence_index] == "d":
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_left):
 				if sequence_list[right_sequence_index] == "l":
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 			if Input.is_action_just_pressed(controls.move_right):
 				if sequence_list[right_sequence_index] == "r":
 					puzzleModalP2.paintArrow(right_sequence_index, true)
 					right_sequence_index += 1
+					password_sound.play()
 				else:
 					puzzleModalP2.paintAllArrowsWhite()
+					wrong_password_sound.play()
 					right_sequence_index = 0
 		#print(right_sequence_index)
 		#print(sequence_list)
@@ -254,8 +272,8 @@ func _physics_process(_delta: float):
 		
 		
 	
-func stop_on_door() -> void:
-	sequence_list = ["u","d","l","r","r"]
+func stop_on_door(password) -> void:
+	sequence_list = password
 	if controls.player_index == 0:
 		var puzzlemodal1 = puzzle_modal_packed.instantiate()
 		$"../../../..".add_child(puzzlemodal1)
@@ -263,7 +281,7 @@ func stop_on_door() -> void:
 		puzzleModalP1.position = Vector2(460, 40)
 		
 		if puzzleModalP1.has_method("createArrowList"):
-			puzzleModalP1.createArrowList(["u","d","l","r","r"])
+			puzzleModalP1.createArrowList(sequence_list)
 		#if $"../PuzzleModal".has_method("createArrowList"):
 			#$"../PuzzleModal".createArrowList(["u","d","l","r","r"])
 	else:
@@ -271,7 +289,7 @@ func stop_on_door() -> void:
 		$"../../../..".add_child(puzzlemodal2)
 		puzzleModalP2 = $"../../../..".get_child(-1)
 		if puzzleModalP2.has_method("createArrowList"):
-			puzzleModalP2.createArrowList(["u","d","l","r","r"])
+			puzzleModalP2.createArrowList(sequence_list)
 			puzzleModalP2.position = Vector2(460, 310)
 		#if $"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".has_method("createArrowList"):
 			#$"../../../ViewPortContainerPlayer1/ViewportPlayer1/PuzzleModal".createArrowList(["u","d","l","r","r"])
