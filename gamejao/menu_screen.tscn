@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr5oakjtssd2d"]
+[gd_scene load_steps=4 format=3 uid="uid://b6nx0x4jtj8yh"]
 
 [ext_resource type="Script" uid="uid://b1cq42ko1t6ca" path="res://menu_screen.gd" id="1_iefc8"]
-[ext_resource type="VideoStream" uid="uid://1facqkpmkgkl" path="res://scenes/Telal1 (online-video-cutter.com).ogv" id="2_iefc8"]
+[ext_resource type="VideoStream" path="res://scenes/Telal1 (online-video-cutter.com).ogv" id="2_iefc8"]
 [ext_resource type="AudioStream" uid="uid://owibwpaf06ni" path="res://Musicas/telaInicial.ogg" id="3_ylmtb"]
 
 [node name="MenuScreen" type="Control"]

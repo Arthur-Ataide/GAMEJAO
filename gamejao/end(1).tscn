@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct72d3rbxkq6b"]
+
+[ext_resource type="Texture2D" uid="uid://67em4jumrc21" path="res://Tiles/mapa/vitoriaP2.png" id="1_ug4ly"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hfcc1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.0627451, 0.02745098, 0.14901961, 1)
+position = Vector2(487, 219)
+scale = Vector2(1000, 1000)
+mesh = SubResource("QuadMesh_hfcc1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = -2.0
+offset_right = 768.0
+offset_bottom = 537.0
+texture = ExtResource("1_ug4ly")
