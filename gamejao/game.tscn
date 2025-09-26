@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ipwie4elrbuu"]
+[gd_scene load_steps=8 format=3 uid="uid://ipwie4elrbuu"]
 
 [ext_resource type="Script" uid="uid://kq7bn3yheph5" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bhfodnwgyinnw" path="res://scenes/player/player.tscn" id="2_fc0e3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cfwxggqkfjrnh" path="res://scenes/player/player_1_controls.tres" id="5_ryrav"]
 [ext_resource type="Resource" uid="uid://cnjpt67ipxh4a" path="res://scenes/player/player_2_controls.tres" id="6_ryrav"]
 [ext_resource type="Script" uid="uid://c3hk7wafk2cgx" path="res://camera_2d.gd" id="7_eow3j"]
+[ext_resource type="AudioStream" uid="uid://d1r7da0cidceo" path="res://Musicas/DoMal-Song.ogg" id="7_j5wjh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_feb5d")
@@ -52,6 +53,10 @@ drag_vertical_enabled = true
 drag_top_margin = 0.5
 drag_bottom_margin = 0.3
 script = ExtResource("7_eow3j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer"]
+stream = ExtResource("7_j5wjh")
+autoplay = true
 
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Player" method="_on_mapa_1_player_touched_door"]
 [connection signal="player_touched_door" from="VBoxContainer/ViewPortContainerPlayer1/ViewportPlayer1/Mapa1" to="VBoxContainer/ViewPortContainerPlayer2/ViewportPlayer1/Player2" method="_on_mapa_1_player_touched_door"]
