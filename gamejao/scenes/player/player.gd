@@ -4,6 +4,9 @@ var gravity = 30
 var input_locked := false
 var stopped_on_door := false
 var quant_portas = 0
+var is_in_hazard_zone := false
+@onready var hazard_detector = $HazardDetector
+
 @export var jump_force = 300
 @export var buff_duracao := 5.0
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
@@ -88,6 +91,7 @@ func _on_animacion_animation_finished():
 		animacion.play("agarrado")
 
 func _physics_process(_delta: float):
+	check_hazard_zone()
 	atualizar_buffs(_delta)
 	
 	if is_on_wall_only():
@@ -432,10 +436,20 @@ func recalcular_status():
 	
 	print("Status atualizados: Caminhada=%s, Corrida=%s, Pulo=%s" % [walk_speed, run_speed, jump_force])
 
+func check_hazard_zone():
+	# Pega todas as áreas que estão sobrepondo o detector
+	var areas = hazard_detector.get_overlapping_areas()
+	is_in_hazard_zone = false # Começa assumindo que não está em perigo
+	for area in areas:
+		# Se qualquer uma das áreas pertencer ao grupo "hazards"...
+		if area.is_in_group("hazards"):
+			is_in_hazard_zone = true # ...então está em perigo
+			return # Pode parar de verificar
+
 func _on_time_checkpoint_timeout() -> void:
-	if is_on_floor():
+	if is_on_floor() and not is_in_hazard_zone:
 		ultimo_ponto_seguro = global_position
-		print("Checkpoint salvo em: ", ultimo_ponto_seguro)
+		print("Checkpoint salvo em local seguro: ", ultimo_ponto_seguro)
 
 
 func _on_time_double_tap_timeout() -> void:
