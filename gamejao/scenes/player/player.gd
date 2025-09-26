@@ -67,13 +67,23 @@ func _ready():
 @onready var ray_left: RayCast2D = $RayLeft
 
 func start_wall_slide(left, right):
+	if not is_wall_sliding: animacion.play("agarrando")
+	
 	is_wall_sliding = true
 	velocity.y = min(velocity.y, wall_slide_speed)
 	wall_direction = 1 if left else -1
+	
 
 func stop_wall_slide():
+	if is_wall_sliding: animacion.play("despregar")
 	is_wall_sliding = false
 	wall_direction = 0
+	
+func _on_animacion_animation_finished():
+	# Se a animação que acabou foi a "agarrando" E o personagem ainda está na parede
+	if animacion.animation == "agarrando" and is_wall_sliding:
+		# Começa a animação de "agarrado" em loop
+		animacion.play("agarrado")
 
 func _physics_process(_delta: float):
 	atualizar_buffs(_delta)
@@ -162,7 +172,9 @@ func _physics_process(_delta: float):
 
 		velocity.x = target_speed * horizontalDirection
 			
-		if not is_on_floor():
+		if is_wall_sliding:
+			pass 
+		elif not is_on_floor():
 			animacion.play("pulando")
 		elif horizontalDirection != 0:
 			if abs(velocity.x) > base_walk_speed:
