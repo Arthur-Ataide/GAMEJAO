@@ -13,7 +13,7 @@
 [sub_resource type="QuadMesh" id="QuadMesh_ffebq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2hyn"]
-size = Vector2(712, 61.5)
+size = Vector2(590, 61.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7fe1"]
 size = Vector2(606, 20)
@@ -192,6 +192,7 @@ scale = Vector2(480, 72.249985)
 mesh = SubResource("QuadMesh_ffebq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-61, 0)
 shape = SubResource("RectangleShape2D_h2hyn")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
