@@ -14542,6 +14542,12 @@ destino = NodePath("Marker2D")
 [node name="Marker2D" type="Marker2D" parent="UnlockableDoor3"]
 position = Vector2(12.772952, 4.39654)
 
+[node name="Spawn1" type="Marker2D" parent="."]
+position = Vector2(1570, 2779)
+
+[node name="Spawn2" type="Marker2D" parent="."]
+position = Vector2(1610, 2781)
+
 [connection signal="body_entered_door" from="UnlockableDoor" to="." method="_on_unlockable_door_body_entered_door"]
 [connection signal="body_entered" from="zona morte" to="zona morte" method="_on_body_entered"]
 [connection signal="body_entered" from="portal/zona_portal" to="portal/zona_portal" method="_on_body_entered"]

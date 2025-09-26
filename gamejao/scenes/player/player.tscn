@@ -152,8 +152,9 @@ texture = ExtResource("1_gmlin")
 wait_time = 3.5
 autostart = true
 
-[node name="TimeBuff" type="Timer" parent="."]
-wait_time = 5.0
+[node name="TimeDoubleTap" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -173,4 +174,4 @@ target_position = Vector2(-10, 0)
 target_position = Vector2(10, 0)
 
 [connection signal="timeout" from="TimeCheckpoint" to="." method="_on_time_checkpoint_timeout"]
-[connection signal="timeout" from="TimeBuff" to="." method="_on_time_buff_timeout"]
+[connection signal="timeout" from="TimeDoubleTap" to="." method="_on_time_double_tap_timeout"]
