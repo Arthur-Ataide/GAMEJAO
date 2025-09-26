@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dggawkgrxx0wp"]
+[gd_scene load_steps=78 format=3 uid="uid://dggawkgrxx0wp"]
 
 [ext_resource type="PackedScene" uid="uid://djyf76m0pqjhf" path="res://props/unlockable_door.tscn" id="1_h2hyn"]
 [ext_resource type="Script" uid="uid://bywniv6gclv4o" path="res://scenes/levels/map_1.gd" id="1_v7fe1"]
@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://vb32kx1fmbg2" path="res://resources/Backgrounds/fundoFirewall.png" id="2_ikjlj"]
 [ext_resource type="Texture2D" uid="uid://cuarvuxyiin5w" path="res://resources/Backgrounds/fundoWindowsDefender.png" id="3_bwlm8"]
 [ext_resource type="Texture2D" uid="uid://cufed7ingia6r" path="res://Tiles/moldemapa.png" id="3_s0lqh"]
-[ext_resource type="Script" path="res://scenes/levels/zona_morte.gd" id="3_wy4vl"]
+[ext_resource type="Script" uid="uid://r3mwnnfr5mm" path="res://scenes/levels/zona_morte.gd" id="3_wy4vl"]
 [ext_resource type="Texture2D" uid="uid://by82f812x8rb" path="res://Tiles/mapa/tileSetV1.png" id="4_10aoq"]
 [ext_resource type="Texture2D" uid="uid://dqwvv1tcgb61j" path="res://Tiles/Tiles/tile_0034.png" id="4_ixlcy"]
 [ext_resource type="Texture2D" uid="uid://crueg7fccfbr6" path="res://Tiles/mapa/tileSetPequeno.png" id="4_vyl6i"]
-[ext_resource type="Script" path="res://scenes/levels/zona_portal.gd" id="5_cn17j"]
+[ext_resource type="Script" uid="uid://bkf7mpaj1mpu8" path="res://scenes/levels/zona_portal.gd" id="5_cn17j"]
 [ext_resource type="Texture2D" uid="uid://blsja5yahfw4b" path="res://Tiles/mapa/anguloHardware.png" id="5_wd24e"]
 [ext_resource type="Texture2D" uid="uid://ckbyptn32acqm" path="res://Tiles/mapa/firewallAngulos.png" id="6_wd24e"]
 [ext_resource type="Texture2D" uid="uid://c3fnriyrh5rpi" path="res://scenes/Design sem nome.png" id="6_yxgn6"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dh7piqupxdqt6" path="res://Tiles/mapa/rampaDulolVoid.png" id="9_pek4u"]
 [ext_resource type="Texture2D" uid="uid://coc44g1wp2w3c" path="res://Tiles/mapa/rampaDulolVoid (1).png" id="10_xyocl"]
 [ext_resource type="PackedScene" uid="uid://dqn27a0rxksh8" path="res://propriedade_mapa/gosma.tscn" id="12_5igu6"]
-[ext_resource type="PackedScene" uid="uid://crspkbg61ahdu" path="res://propriedade_mapa/fogo.tscn" id="17_pek4u"]
+[ext_resource type="PackedScene" path="res://propriedade_mapa/fogo.tscn" id="17_pek4u"]
 [ext_resource type="PackedScene" uid="uid://b6flhe8vnt2mq" path="res://propriedade_mapa/gelo.tscn" id="20_r1bd2"]
 [ext_resource type="Script" path="res://scenes/levels/gelo_teste.gd" id="22_12ehn"]
 [ext_resource type="Script" path="res://gosma.gd" id="23_12ehn"]
@@ -13858,7 +13858,6 @@ size = Vector2(36.251953, 6.8809204)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_st8ga"]
 size = Vector2(100.56781, 6.039673)
 
-[sub_resource type="QuadMesh" id="QuadMesh_ma5wf"]
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oniax"]
 size = Vector2(79.5, 8)
 
@@ -13867,6 +13866,8 @@ size = Vector2(2.6667023, 53.33374)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8egtu"]
 size = Vector2(5.333393, 53.33374)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ma5wf"]
 
 [node name="Mapa1" type="Node2D"]
 texture_filter = 1
@@ -13968,7 +13969,7 @@ layer_0/tile_data = PackedInt32Array(12517563, 12582912, 101, 12583099, 12582912
 [node name="StaticBody2D9" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D9"]
-polygon = PackedVector2Array(1661, 2800, 1742, 2719, 1743, 2799)
+polygon = PackedVector2Array(1661, 2800, 1744, 2720, 1756, 2720, 1743, 2799)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D9"]
 polygon = PackedVector2Array(2345, 2528, 2465, 2590, 2434, 2590, 2333, 2538, 2333, 2527)
@@ -14869,6 +14870,7 @@ position = Vector2(3947, 2276)
 [node name="Fogo" parent="." instance=ExtResource("17_pek4u")]
 position = Vector2(4392, 2488)
 rotation = -3.1292405
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(2688, 2081)
